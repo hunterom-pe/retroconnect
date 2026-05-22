@@ -12,6 +12,7 @@
   "dependencies": {
     "@capacitor/core": "^8.3.4",
     "@capacitor/device": "^8.0.2",
+    "@capacitor/ios": "^8.3.4",
     "@capacitor/privacy-screen": "^2.0.1",
     "98.css": "^0.1.21",
     "firebase": "^12.13.0",
