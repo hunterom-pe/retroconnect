@@ -85,6 +85,114 @@ class SimulatedStore {
             profileTheme: "cyberpunk",
             emoji_avatar: "💾📟⚡",
             createdAt: Date.now() - 10 * 24 * 60 * 60 * 1000
+          },
+          "user_greenday": {
+            uid: "user_greenday",
+            username: "Billie",
+            mood: "Rockin' 🎸",
+            bio: "Waiting for September to end.",
+            profileTheme: "sunset",
+            emoji_avatar: "🎸🥁🎤",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_emo": {
+            uid: "user_emo",
+            username: "Sk8rBoi",
+            mood: "Mopey 🖤",
+            bio: "She was a skater girl, she said see ya later girl.",
+            profileTheme: "classic",
+            emoji_avatar: "🛹💔💀",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_hiphop": {
+            uid: "user_hiphop",
+            username: "Jay",
+            mood: "Hustling 🎤",
+            bio: "99 problems but asl ain't one.",
+            profileTheme: "sunset",
+            emoji_avatar: "🎤🕶️💵",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_coder": {
+            uid: "user_coder",
+            username: "Ada",
+            mood: "Coding 💻",
+            bio: "Brutalist designs are the future.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "💻💾⌨️",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_rave": {
+            uid: "user_rave",
+            username: "DJ_Spin",
+            mood: "Hyped 🎧",
+            bio: "Catch me at the warehouse party tonight.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🎧🎛️⚡",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_retro": {
+            uid: "user_retro",
+            username: "NeonGirl",
+            mood: "Glow ✨",
+            bio: "Living in the wrong decade.",
+            profileTheme: "classic",
+            emoji_avatar: "✨🍭🛸",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_indie": {
+            uid: "user_indie",
+            username: "VinylVixen",
+            mood: "Chill ☕",
+            bio: "Vinyl records sound better. Period.",
+            profileTheme: "sunset",
+            emoji_avatar: "📻🍂☕",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_metal": {
+            uid: "user_metal",
+            username: "IronHead",
+            mood: "Heavy 🤘",
+            bio: "Metal head for life. Slayer rules.",
+            profileTheme: "classic",
+            emoji_avatar: "🤘🎸🔥",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_gamer": {
+            uid: "user_gamer",
+            username: "PixelKnight",
+            mood: "Gaming 🎮",
+            bio: "Galaga high score champion.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🎮👾🏆",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_coffee": {
+            uid: "user_coffee",
+            username: "BeanQueen",
+            mood: "Caffeinated ☕",
+            bio: "Too much espresso, not enough time.",
+            profileTheme: "classic",
+            emoji_avatar: "☕🍩⏳",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_punk": {
+            uid: "user_punk",
+            username: "RiotGrrrl",
+            mood: "Rebellious ✊",
+            bio: "Support local zines and bands.",
+            profileTheme: "sunset",
+            emoji_avatar: "✊🎸🖤",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_star": {
+            uid: "user_star",
+            username: "AstroBoy",
+            mood: "Dreamy 🌌",
+            bio: "Staring at the stars from my rooftop.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🌌🌠🚀",
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
           }
         },
         posts: [
@@ -96,7 +204,7 @@ class SimulatedStore {
             venueCity: "Phoenix",
             venueZone: "Downtown",
             text: "You were wearing a vintage Polaroid tee and playing the Galaga machine. We locked eyes when I beat your high score. Drinks on me next time?",
-            userId: "user_polaroid",
+            userId: "user_greenday",
             date: "May 20, 2026",
             timeRange: "10:00 PM - 11:30 PM",
             timestamp: Date.now() - 172800000 // 2 days ago
@@ -109,7 +217,7 @@ class SimulatedStore {
             venueCity: "Phoenix",
             venueZone: "Tempe",
             text: "You had a green beanie and were drinking Guinness on the patio. I asked if the seat next to you was taken, but got too nervous to say more. Let's get a drink.",
-            userId: "user_green",
+            userId: "user_emo",
             date: "May 21, 2026",
             timeRange: "9:00 PM - 10:30 PM",
             timestamp: Date.now() - 86400000 // 1 day ago
@@ -122,7 +230,7 @@ class SimulatedStore {
             venueCity: "Phoenix",
             venueZone: "Downtown",
             text: "Near the jukebox in the basement. You had neon blue eyeliner and a black leather jacket. You played 'Love Will Tear Us Apart' twice. Who are you?",
-            userId: "user_jukebox",
+            userId: "user_coder",
             date: "May 22, 2026",
             timeRange: "11:30 PM - 1:00 AM",
             timestamp: Date.now() - 3600000 // 1 hour ago
@@ -139,7 +247,19 @@ class SimulatedStore {
     
     if (!localStorage.getItem("asl_auth_users")) {
       const initialAuthPool = {
-        "sysop@asl.com": { uid: "sysop_admin", password: "adminpassword" }
+        "sysop@asl.com": { uid: "sysop_admin", password: "adminpassword" },
+        "billie@asl.com": { uid: "user_greenday", password: "password123" },
+        "sk8r@asl.com": { uid: "user_emo", password: "password123" },
+        "jay@asl.com": { uid: "user_hiphop", password: "password123" },
+        "ada@asl.com": { uid: "user_coder", password: "password123" },
+        "spin@asl.com": { uid: "user_rave", password: "password123" },
+        "neon@asl.com": { uid: "user_retro", password: "password123" },
+        "vinyl@asl.com": { uid: "user_indie", password: "password123" },
+        "iron@asl.com": { uid: "user_metal", password: "password123" },
+        "pixel@asl.com": { uid: "user_gamer", password: "password123" },
+        "bean@asl.com": { uid: "user_coffee", password: "password123" },
+        "riot@asl.com": { uid: "user_punk", password: "password123" },
+        "astro@asl.com": { uid: "user_star", password: "password123" }
       };
       localStorage.setItem("asl_auth_users", JSON.stringify(initialAuthPool));
     }
