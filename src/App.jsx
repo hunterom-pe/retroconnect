@@ -34,6 +34,8 @@ export default function App() {
   const [deviceBanned, setDeviceBanned] = useState(false);
   const [booting, setBooting] = useState(true);
 
+  const isLoggedIn = currentUser && !currentUser.isAnonymous;
+
   // App Layout State
   const [venues, setVenues] = useState([]);
   const [selectedVenue, setSelectedVenue] = useState(null);
@@ -679,16 +681,18 @@ export default function App() {
           >
             Browse Locations
           </span>
-          <span 
-            className={`myspace-nav-link ${selectedProfileUser?.userId === currentUser?.uid ? "active" : ""}`} 
-            onClick={() => runWithAuthenticationCheck(handleOpenMyProfile)}
-          >
-            Profile
-          </span>
-          <span className="myspace-nav-link" onClick={() => runWithAuthenticationCheck(() => { setShowInbox(true); })}>Mail</span>
-          <span className="myspace-nav-link" onClick={() => runWithAuthenticationCheck(() => setShowWizard(true))}>Post</span>
-          {currentUser && !currentUser.isAnonymous ? (
-            <span className="myspace-nav-link" onClick={handleLogout}>Logout</span>
+          {isLoggedIn ? (
+            <>
+              <span 
+                className={`myspace-nav-link ${selectedProfileUser?.userId === currentUser?.uid ? "active" : ""}`} 
+                onClick={handleOpenMyProfile}
+              >
+                Profile
+              </span>
+              <span className="myspace-nav-link" onClick={() => setShowInbox(true)}>Mail</span>
+              <span className="myspace-nav-link" onClick={() => setShowWizard(true)}>Post</span>
+              <span className="myspace-nav-link" onClick={handleLogout}>Logout</span>
+            </>
           ) : (
             <span className="myspace-nav-link" onClick={() => setShowAuth(true)}>Login</span>
           )}
