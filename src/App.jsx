@@ -72,6 +72,11 @@ export default function App() {
   const [sysopPassword, setSysopPassword] = useState("");
   const [sysopLoginError, setSysopLoginError] = useState("");
 
+  // Homepage live data states
+  const [coolNewPeople, setCoolNewPeople] = useState([]);
+  const [allPostsCount, setAllPostsCount] = useState(0);
+  const [activeBuddiesCount, setActiveBuddiesCount] = useState(0);
+
 
 
 
@@ -204,6 +209,47 @@ export default function App() {
       unsubAppeals();
     };
   }, [navigationScreen, currentUser]);
+
+  // Live statistics and dynamic homepage users subscriptions
+  useEffect(() => {
+    // Total posts count
+    const unsubPosts = dbOnSnapshot("posts", [], (snapshot) => {
+      setAllPostsCount(snapshot.size);
+    });
+
+    // Active buddies (logged in/registered in the last 7 days) and dynamic new users list
+    const unsubUsers = dbOnSnapshot("users", [], (snapshot) => {
+      const now = Date.now();
+      const list = [];
+      let activeCount = 0;
+
+      snapshot.docs.forEach(doc => {
+        const data = doc.data();
+        const time = data.lastLogin || data.createdAt || 0;
+        
+        // Count active buddies (7-day threshold to capture mock profiles too)
+        if (now - time < 7 * 24 * 60 * 60 * 1000) {
+          activeCount++;
+        }
+
+        // Add to cool new people list if not SysOp or Tom
+        if (doc.id !== "sysop_admin" && doc.id !== "tom") {
+          list.push({ uid: doc.id, ...data });
+        }
+      });
+
+      // Sort by createdAt descending
+      list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      setCoolNewPeople(list.slice(0, 3));
+      setActiveBuddiesCount(activeCount);
+    });
+
+    return () => {
+      unsubPosts();
+      unsubUsers();
+    };
+  }, []);
+
 
 
   // 3. Subscribe to Posts for the selected Venue
@@ -721,18 +767,41 @@ export default function App() {
 
             <div className="myspace-orange-box">
               <div className="section-header-orange" style={{ margin: 0 }}>Cool New People</div>
-              <div 
-                style={{ padding: "15px", textAlign: "center", fontSize: "14px", cursor: "pointer" }}
-                onClick={() => handleOpenProfile("tom", {
-                  username: "Tom",
-                  mood: "Friendly 🙂",
-                  bio: "Co-founder of asl. Let me know if you have any questions!",
-                  profileTheme: "classic"
-                })}
-              >
-                <img src="/logo.png" alt="Tom" style={{ width: "80px", height: "80px", imageRendering: "pixelated", borderRadius: "4px", display: "block", margin: "0 auto 8px auto" }} />
-                <div style={{ fontWeight: "bold" }}>Tom</div>
-                <div style={{ color: "#666", fontStyle: "italic" }}>"Your first friend."</div>
+              <div style={{ display: "flex", justifyContent: "space-around", padding: "15px", gap: "10px" }}>
+                {coolNewPeople.length === 0 ? (
+                  <div 
+                    style={{ textAlign: "center", fontSize: "14px", cursor: "pointer", width: "100%" }}
+                    onClick={() => handleOpenProfile("tom", {
+                      username: "Tom",
+                      mood: "Friendly 🙂",
+                      bio: "Co-founder of asl. Let me know if you have any questions!",
+                      profileTheme: "classic",
+                      emoji_avatar: "👥🥃💖"
+                    })}
+                  >
+                    <div style={{ fontSize: "36px", marginBottom: "8px" }}>👥🥃💖</div>
+                    <div style={{ fontWeight: "bold", textDecoration: "underline", color: "#003399" }}>Tom</div>
+                    <div style={{ color: "#666", fontStyle: "italic" }}>"Your first friend."</div>
+                  </div>
+                ) : (
+                  coolNewPeople.map(person => (
+                    <div 
+                      key={person.uid}
+                      style={{ textAlign: "center", fontSize: "13px", cursor: "pointer", flex: 1, maxWidth: "120px" }}
+                      onClick={() => handleOpenProfile(person.uid, person)}
+                    >
+                      <div style={{ fontSize: "36px", marginBottom: "5px", display: "flex", justifyContent: "center" }}>
+                        {person.emoji_avatar || "👥"}
+                      </div>
+                      <div style={{ fontWeight: "bold", textDecoration: "underline", color: "#003399", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        {person.username}
+                      </div>
+                      <div style={{ color: "#666", fontSize: "11px", fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                        "{person.mood || "Chillin'"}"
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 
@@ -744,11 +813,11 @@ export default function App() {
               <div style={{ padding: "15px", fontSize: "14px", lineHeight: "1.5" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                   <span>📬 Missed Connections:</span>
-                  <strong>1,842 encounters</strong>
+                  <strong>{allPostsCount} encounters</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                   <span>📡 Active Buddies Online:</span>
-                  <strong>48 users</strong>
+                  <strong>{activeBuddiesCount} users</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
                   <span>🔒 Safe-Area Guard:</span>
