@@ -92,6 +92,11 @@ export default function App() {
   const [feedTab, setFeedTab] = useState("radar");
   const [inboundClaimsCount, setInboundClaimsCount] = useState(0);
 
+  // Bar search states
+  const [barSearchQuery, setBarSearchQuery] = useState("");
+  const [barSearchResults, setBarSearchResults] = useState(null);
+  const [isBarSearching, setIsBarSearching] = useState(false);
+
   // 1. App Startup: Load Device UUID, sign in anonymously, and fetch venues
   useEffect(() => {
     const initializeApp = async () => {
@@ -143,6 +148,9 @@ export default function App() {
           if (userRecord) {
             const data = userRecord.data();
             setUserDoc(data);
+            if (data.selectedCity) {
+              setSelectedCity(data.selectedCity);
+            }
             if (data.banned || data.flag_count >= 3) {
               setDeviceBanned(true);
               if (deviceUuid) {
@@ -379,6 +387,21 @@ export default function App() {
   // Post wizard submit handler
   const handleWizardSubmit = async (postData) => {
     try {
+      const userCity = userDoc?.selectedCity || selectedCity || "Phoenix";
+      const postCity = postData.venueCity || "Phoenix";
+      if (postCity.toLowerCase() !== userCity.toLowerCase()) {
+        const funnyMessages = [
+          `Wrong city, bro. Stick to your own turf in ${userCity}!`,
+          `Nice try, traveler. The server admin caught you trying to post in ${postCity} from your home node in ${userCity}.`,
+          `Error: Metropolitan mismatch. You are registered in ${userCity}. No cross-posting allowed!`,
+          `You sure you're there, fam? The database daemon says you're posting in ${postCity} but your account is based in ${userCity}.`,
+          `Bzzzt! Portal mismatch. You cannot post to ${postCity} while logged into the ${userCity} node.`,
+          `Geographic lock engaged. Go back to your own ${userCity} node, bestie.`
+        ];
+        const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+        throw new Error(randomMsg);
+      }
+
       await dbAddDoc("posts", {
         ...postData,
         userId: currentUser.uid
@@ -472,6 +495,23 @@ export default function App() {
   const handleSelectVenue = (venue) => {
     setSelectedVenue(venue);
     setNavigationScreen("feed");
+  };
+
+  const handleBarSearch = async (e) => {
+    if (e) e.preventDefault();
+    if (!barSearchQuery.trim()) {
+      setBarSearchResults(null);
+      return;
+    }
+    setIsBarSearching(true);
+    try {
+      const results = await searchVenues(barSearchQuery, ""); // No city filter to search nationwide
+      setBarSearchResults(results);
+    } catch (err) {
+      console.error("Error searching nationwide bars:", err);
+    } finally {
+      setIsBarSearching(false);
+    }
   };
 
   const handleOpenMyProfile = async () => {
@@ -1324,6 +1364,9 @@ export default function App() {
                     onClick={() => {
                       setSelectedCity("Phoenix");
                       setNavigationScreen("bar");
+                      if (isLoggedIn) {
+                        dbSetDoc("users", currentUser.uid, { selectedCity: "Phoenix" }, true);
+                      }
                     }}
                   >
                     <div className="city-portal-icon">🌵</div>
@@ -1341,6 +1384,9 @@ export default function App() {
                     onClick={() => {
                       setSelectedCity("New York");
                       setNavigationScreen("bar");
+                      if (isLoggedIn) {
+                        dbSetDoc("users", currentUser.uid, { selectedCity: "New York" }, true);
+                      }
                     }}
                   >
                     <div className="city-portal-icon">🗽</div>
@@ -1371,36 +1417,67 @@ export default function App() {
                   Change City
                 </button>
               </div>
-              
               <div style={{ padding: "12px" }}>
+                {/* Nationwide search bar */}
+                <form onSubmit={handleBarSearch} style={{ display: "flex", gap: "6px", marginBottom: "12px" }}>
+                  <input 
+                    type="text" 
+                    placeholder="Search bars nationwide (e.g. Cobra, PDT)..." 
+                    value={barSearchQuery}
+                    onChange={(e) => {
+                      setBarSearchQuery(e.target.value);
+                      if (!e.target.value.trim()) {
+                        setBarSearchResults(null);
+                      }
+                    }}
+                    style={{ flex: 1, minHeight: "36px", padding: "0 8px", border: "1px solid #ff99cc", borderRadius: "2px" }}
+                  />
+                  <button type="submit" disabled={isBarSearching} style={{ minHeight: "36px", cursor: "pointer", padding: "0 12px", border: "1px solid #ff99cc", backgroundColor: "#ffe6f2", color: "#b30059", fontWeight: "bold" }}>
+                    {isBarSearching ? "..." : "Search"}
+                  </button>
+                  {barSearchResults !== null && (
+                    <button 
+                      type="button" 
+                      onClick={() => {
+                        setBarSearchQuery("");
+                        setBarSearchResults(null);
+                      }} 
+                      style={{ minHeight: "36px", cursor: "pointer", padding: "0 12px", border: "1px solid #ccc", backgroundColor: "#f0f0f0" }}
+                    >
+                      Clear
+                    </button>
+                  )}
+                </form>
+
                 {(() => {
-                  const filteredVenues = venues.filter(v => 
+                  const showSearchResults = barSearchResults !== null;
+                  const displayList = showSearchResults ? barSearchResults : venues.filter(v => 
                     (v.city || "").toLowerCase() === selectedCity.toLowerCase()
                   );
 
-                  if (filteredVenues.length === 0) {
+                  if (displayList.length === 0) {
                     return (
                       <div style={{ padding: "40px 10px", textAlign: "center", color: "#808080", fontStyle: "italic", fontSize: "13px" }}>
-                        No matching venues found.
+                        {showSearchResults ? "No venues found matching search." : "No matching venues found."}
                       </div>
                     );
                   }
 
-                  const zones = {};
-                  filteredVenues.forEach(v => {
-                    const zone = v.zone || "Downtown";
-                    if (!zones[zone]) zones[zone] = [];
-                    zones[zone].push(v);
+                  const groups = {};
+                  displayList.forEach(v => {
+                    const groupKey = showSearchResults ? v.city : (v.zone || "Downtown");
+                    if (!groups[groupKey]) groups[groupKey] = [];
+                    groups[groupKey].push(v);
                   });
 
-                  return Object.keys(zones).map(zone => (
-                    <div key={zone} style={{ marginBottom: "15px" }}>
+                  return Object.keys(groups).map(groupName => (
+                    <div key={groupName} style={{ marginBottom: "15px" }}>
                       <div style={{ fontWeight: "bold", backgroundColor: "#ffccd8", padding: "6px 10px", fontSize: "13px", borderBottom: "1px solid #ff99bb", color: "#99004d", display: "flex", alignItems: "center", gap: "6px", borderRadius: "2px" }}>
-                        <span>📁</span>
-                        <span>{zone} ({zones[zone].length})</span>
+                        <span>{showSearchResults ? "🌐" : "📁"}</span>
+                        <span>{groupName} ({groups[groupName].length})</span>
                       </div>
                       <ul style={{ listStyle: "none", padding: 0, margin: "6px 0 0 0", display: "flex", flexDirection: "column", gap: "6px" }}>
-                        {zones[zone].map(venue => (
+                        {groups[groupName].map(venue => (
                           <li 
                             key={venue.fsq_id}
                             onClick={() => handleSelectVenue(venue)}
@@ -1422,7 +1499,7 @@ export default function App() {
                                 {venue.name}
                               </div>
                               <div className="city-portal-desc" style={{ fontSize: "11px", margin: 0 }}>
-                                {venue.formatted_address}
+                                {venue.formatted_address} {showSearchResults && `(${venue.zone})`}
                               </div>
                             </div>
                             <div className="city-portal-arrow">➡️</div>
@@ -1449,7 +1526,7 @@ export default function App() {
               </h2>
 
               <div className="profile-details-table">
-                <p><strong>Region:</strong> {selectedCity}</p>
+                <p><strong>Region:</strong> {selectedVenue.city || selectedCity}</p>
                 <p><strong>Category:</strong> Local Spot / Venue</p>
                 <p><strong>Address:</strong> {selectedVenue.formatted_address}</p>
                 <p><strong>Status:</strong> Active Connection</p>
@@ -1464,7 +1541,24 @@ export default function App() {
                   <div 
                     className="contact-action" 
                     style={{ flex: 1, minHeight: "36px", display: "flex", alignItems: "center", justifyContent: "center" }}
-                    onClick={() => runWithAuthenticationCheck(() => setNavigationScreen("post"))}
+                    onClick={() => {
+                      const userCity = userDoc?.selectedCity || selectedCity || "Phoenix";
+                      const venueCity = selectedVenue.city || "Phoenix";
+                      if (venueCity.toLowerCase() !== userCity.toLowerCase()) {
+                        const funnyMessages = [
+                          `Wrong city, bro. Stick to your own turf in ${userCity}!`,
+                          `Nice try, traveler. The server admin caught you trying to post in ${venueCity} from your home node in ${userCity}.`,
+                          `Error: Metropolitan mismatch. You are registered in ${userCity}. No cross-posting allowed!`,
+                          `You sure you're there, fam? The database daemon says you're posting in ${venueCity} but your account is based in ${userCity}.`,
+                          `Bzzzt! Portal mismatch. You cannot post to ${venueCity} while logged into the ${userCity} node.`,
+                          `Geographic lock engaged. Go back to your own ${userCity} node, bestie.`
+                        ];
+                        const randomMsg = funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
+                        setModerationError(randomMsg);
+                        return;
+                      }
+                      runWithAuthenticationCheck(() => setNavigationScreen("post"));
+                    }}
                   >
                     📝 Post
                   </div>
@@ -1688,6 +1782,7 @@ export default function App() {
             preselectedVenue={selectedVenue}
             currentUserProfile={userDoc}
             onModerationError={setModerationError}
+            city={selectedCity || userDoc?.selectedCity || "Phoenix"}
           />
         )}
 

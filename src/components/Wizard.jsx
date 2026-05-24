@@ -26,7 +26,7 @@ const DOXXING_ROASTS = [
  * @param {Function} props.onClose Close handler
  * @param {Function} props.onSubmit Submit handler (saves post to db)
  */
-export default function Wizard({ onClose, onSubmit, preselectedVenue = null, currentUserProfile = null, onModerationError = null }) {
+export default function Wizard({ onClose, onSubmit, preselectedVenue = null, currentUserProfile = null, onModerationError = null, city = "Phoenix" }) {
   const [step, setStep] = useState(preselectedVenue ? 2 : 1);
   const [searchQuery, setSearchQuery] = useState("");
   const [venuesList, setVenuesList] = useState([]);
@@ -74,7 +74,7 @@ export default function Wizard({ onClose, onSubmit, preselectedVenue = null, cur
 
     setIsSearching(true);
     try {
-      const results = await searchVenues(searchQuery);
+      const results = await searchVenues(searchQuery, city);
       setVenuesList(results);
     } catch (err) {
       console.error(err);

@@ -156,7 +156,13 @@ export async function searchVenues(query, filterCity = "") {
 
   try {
     // Categories: Nightlife (10032), Dining and Drinking (13000)
-    const url = `https://api.foursquare.com/v3/places/search?query=${encodeURIComponent(query)}&categories=13000,10032&limit=10`;
+    let url = `https://api.foursquare.com/v3/places/search?query=${encodeURIComponent(query)}&categories=13000,10032&limit=10`;
+    if (filterCity) {
+      // Append region hints to help Foursquare resolve locations accurately
+      const nearHint = filterCity.toLowerCase() === "phoenix" ? "Phoenix, AZ" : "New York, NY";
+      url += `&near=${encodeURIComponent(nearHint)}`;
+    }
+    
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -171,11 +177,38 @@ export async function searchVenues(query, filterCity = "") {
 
     const data = await response.json();
     
+    // Filter Foursquare results to make sure they reside in the requested city/metro zone
+    const targetResults = (data.results || []).filter(place => {
+      if (!filterCity) return true;
+      const locality = (place.location?.locality || "").toLowerCase();
+      const region = (place.location?.region || "").toLowerCase();
+      
+      if (filterCity.toLowerCase() === "phoenix") {
+        return (
+          locality === "phoenix" || 
+          locality === "tempe" || 
+          locality === "scottsdale" || 
+          region === "az" || 
+          region === "arizona"
+        );
+      }
+      if (filterCity.toLowerCase() === "new york") {
+        return (
+          locality === "new york" || 
+          locality === "brooklyn" || 
+          locality === "manhattan" || 
+          region === "ny" || 
+          region === "new york"
+        );
+      }
+      return locality === filterCity.toLowerCase();
+    });
+
     // Map Foursquare results to our layout schema
-    return data.results.map(place => {
+    return targetResults.map(place => {
       // Deduce zone based on locality or assign a generic one
-      const city = place.location.locality || "Phoenix";
-      const address = place.location.address || "No Address Provided";
+      const city = place.location?.locality || (filterCity.toLowerCase() === "new york" ? "New York" : "Phoenix");
+      const address = place.location?.address || "No Address Provided";
       
       // Auto-assign zone based on address/name or defaults
       let zone = "Downtown";
@@ -196,13 +229,18 @@ export async function searchVenues(query, filterCity = "") {
         }
       }
 
+      const rawLocality = (place.location?.locality || "").toLowerCase();
+      const rawRegion = (place.location?.region || "").toLowerCase();
+      const isNY = rawLocality === "new york" || rawLocality === "brooklyn" || rawLocality === "manhattan" || rawRegion === "ny" || rawRegion === "new york";
+      const normalizedCity = isNY ? "New York" : "Phoenix";
+
       return {
         fsq_id: place.fsq_id,
         name: place.name,
         address: address,
-        city: city,
+        city: normalizedCity,
         zone: zone,
-        formatted_address: place.location.formatted_address || `${address}, ${city}`
+        formatted_address: place.location?.formatted_address || `${address}, ${city}`
       };
     });
 
