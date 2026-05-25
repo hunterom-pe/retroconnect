@@ -7,7 +7,7 @@ const formatTime = (seconds) => {
 };
 
 /**
- * MySpace Music Player integrated with Spotify Embed IFrame API.
+ * MySpace Music Player integrated with Spotify Embed IFrame API and Mock fallback.
  * @param {object} props
  * @param {string} props.spotifyTrackUri The unique spotify:track:URI to stream
  */
@@ -23,6 +23,7 @@ export default function MySpaceMusicPlayer({ spotifyTrackUri = "spotify:track:4P
   
   const [embedController, setEmbedController] = useState(null);
   const [audioInitialized, setAudioInitialized] = useState(false);
+  const [spotifyActive, setSpotifyActive] = useState(false);
   
   const containerRef = useRef(null);
 
@@ -33,6 +34,7 @@ export default function MySpaceMusicPlayer({ spotifyTrackUri = "spotify:track:4P
     // Reset playback stats on track change
     setAudioInitialized(false);
     setIsPlaying(false);
+    setSpotifyActive(false);
     setCurrentTime(0);
 
     const fetchMetadata = async () => {
@@ -107,9 +109,10 @@ export default function MySpaceMusicPlayer({ spotifyTrackUri = "spotify:track:4P
             }));
           }
 
-          // Clear autoplay compliance block on actual playback start
+          // Clear autoplay compliance block on actual playback start from Spotify
           if (!isPaused && position >= 0) {
             setAudioInitialized(true);
+            setSpotifyActive(true);
           }
         });
       });
@@ -143,19 +146,35 @@ export default function MySpaceMusicPlayer({ spotifyTrackUri = "spotify:track:4P
     };
   }, [spotifyTrackUri]);
 
+  // 3. Simulated Playback interval for mock mode (active only when Spotify embed is inactive or blocked)
+  useEffect(() => {
+    let interval = null;
+    if (isPlaying && !spotifyActive) {
+      interval = setInterval(() => {
+        setCurrentTime((prev) => {
+          if (prev >= trackInfo.duration) {
+            setIsPlaying(false);
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, trackInfo.duration, spotifyActive]);
+
   const handlePlay = () => {
+    setAudioInitialized(true);
+    setIsPlaying(true);
     if (embedController) {
       embedController.play();
-    } else {
-      setIsPlaying(true);
     }
   };
 
   const handlePause = () => {
+    setIsPlaying(false);
     if (embedController) {
       embedController.pause();
-    } else {
-      setIsPlaying(false);
     }
   };
 
