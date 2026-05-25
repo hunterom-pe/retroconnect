@@ -345,12 +345,7 @@ export default function MySpaceProfileDialog({
             </div>
 
             {!isEditing && (
-              <>
-                <MySpaceMusicPlayer spotifyTrackUri={spotify_track_uri} />
-                <div style={{ fontSize: "9px", color: "#666", textAlign: "center", marginTop: "2px", fontStyle: "italic", fontFamily: "Tahoma, sans-serif" }}>
-                  💡 Log in to Spotify on this browser to play full songs; otherwise, a 30s preview plays.
-                </div>
-              </>
+              <MySpaceMusicPlayer spotifyTrackUri={spotify_track_uri} />
             )}
 
             {/* Custom Theme Selector (only visible in edit mode) */}
