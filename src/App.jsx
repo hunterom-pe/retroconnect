@@ -113,6 +113,14 @@ export default function App() {
   const [barSearchResults, setBarSearchResults] = useState(null);
   const [isBarSearching, setIsBarSearching] = useState(false);
   const [activeTagline] = useState(() => RETRO_TAGLINES[Math.floor(Math.random() * RETRO_TAGLINES.length)]);
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // 1. App Startup: Load Device UUID, sign in anonymously, and fetch venues
   useEffect(() => {
@@ -830,6 +838,15 @@ export default function App() {
   // Lock user into BSOD if marked banned
   if (deviceBanned || (userDoc && (userDoc.banned || userDoc.flag_count >= 3))) {
     return <BSOD currentUser={currentUser} deviceUuid={deviceUuid} />;
+  }
+
+  if (showSplash) {
+    return (
+      <div className="myspace-splash">
+        <div className="myspace-splash-logo">asl</div>
+        <div className="myspace-splash-tagline">{activeTagline}</div>
+      </div>
+    );
   }
 
   if (booting) {

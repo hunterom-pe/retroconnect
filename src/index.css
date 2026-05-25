@@ -1974,5 +1974,55 @@ legend {
   cursor: not-allowed !important;
 }
 
+/* ==========================================
+   RETRO SPLASH SCREEN
+   ========================================== */
+.myspace-splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #003399 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important;
+  color: #ff66cc !important;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif !important;
+}
+
+.myspace-splash-logo {
+  font-size: 80px !important;
+  font-weight: bold !important;
+  letter-spacing: 2px !important;
+  margin-bottom: 20px !important;
+  color: #ff66cc !important;
+  text-shadow: 0 0 12px rgba(255, 102, 204, 0.8) !important;
+  animation: splash-logo-pop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both !important;
+  text-transform: lowercase !important;
+}
+
+.myspace-splash-tagline {
+  font-size: 16px !important;
+  font-style: italic !important;
+  color: #ffccd8 !important;
+  text-align: center !important;
+  max-width: 80% !important;
+  line-height: 1.5 !important;
+  animation: fade-in 1.2s ease-out both !important;
+}
+
+@keyframes splash-logo-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 
 
