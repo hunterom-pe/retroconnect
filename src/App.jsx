@@ -1987,11 +1987,33 @@ export default function App() {
                 <span style={{ fontSize: "32px" }}>🍹</span>
               </h2>
 
-              <div className="profile-details-table">
+              <div className="profile-details-table" style={{ fontSize: "11px", lineHeight: "1.4" }}>
                 <p><strong>Region:</strong> {selectedVenue.city || selectedCity}</p>
-                <p><strong>Category:</strong> Local Spot / Venue</p>
+                <p><strong>Category:</strong> {selectedVenue.categories && selectedVenue.categories.length > 0 ? selectedVenue.categories.join(", ") : "Local Spot / Venue"}</p>
                 <p><strong>Address:</strong> {selectedVenue.formatted_address}</p>
-                <p><strong>Status:</strong> Active Connection</p>
+                {selectedVenue.rating && <p><strong>Rating:</strong> ⭐ {selectedVenue.rating}/10</p>}
+                {selectedVenue.price && <p><strong>Price:</strong> {"$".repeat(selectedVenue.price)}</p>}
+                {selectedVenue.hours_display && <p><strong>Hours:</strong> {selectedVenue.hours_display}</p>}
+                {selectedVenue.open_now !== null && selectedVenue.open_now !== undefined && (
+                  <p>
+                    <strong>Status:</strong>{" "}
+                    <span style={{ color: selectedVenue.open_now ? "green" : "red", fontWeight: "bold" }}>
+                      {selectedVenue.open_now ? "🟢 OPEN NOW" : "🔴 CLOSED"}
+                    </span>
+                  </p>
+                )}
+                {selectedVenue.amenities && selectedVenue.amenities.length > 0 && (
+                  <div style={{ marginTop: "6px" }}>
+                    <strong>Highlights:</strong>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "4px" }}>
+                      {selectedVenue.amenities.map(a => (
+                        <span key={a} style={{ backgroundColor: "#e1e1e1", border: "1px solid #c0c0c0", padding: "1px 5px", borderRadius: "3px", fontSize: "9px", color: "#333", fontWeight: "bold" }}>
+                          {a}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Contact Links Box */}
