@@ -15,7 +15,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.7,
     categories: ["Arcade Bar", "Nightlife"],
-    open_now: true,
+    open_start: 16,
+    open_end: 2,
     hours_display: "Open Daily 4 PM - 2 AM",
     amenities: ["Retro Arcades", "Outdoor Patio", "DJ Beats", "Credit Cards"]
   },
@@ -29,7 +30,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 9.1,
     categories: ["Speakeasy", "Cocktail Lounge", "Music Venue"],
-    open_now: true,
+    open_start: 18,
+    open_end: 2,
     hours_display: "Open Daily 6 PM - 2 AM",
     amenities: ["Basement Entry", "Live Stage", "Board Games", "Cozy Booths"]
   },
@@ -43,7 +45,8 @@ export const MOCK_VENUES = [
     price: 1,
     rating: 8.5,
     categories: ["Dive Bar", "Neighborhood Spot"],
-    open_now: true,
+    open_start: 16,
+    open_end: 2,
     hours_display: "Open Daily 4 PM - 2 AM",
     amenities: ["Huge Patio", "Jukebox", "Cheap Beer", "Late Night Menu"]
   },
@@ -57,7 +60,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.2,
     categories: ["Lounge", "Neighborhood Pub"],
-    open_now: false,
+    open_start: 16,
+    open_end: 0,
     hours_display: "Open 4 PM - Midnight",
     amenities: ["Outdoor Courtyard", "DJs", "Trivia Nights", "Pool Table"]
   },
@@ -72,7 +76,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.9,
     categories: ["Irish Pub", "Beer Garden", "Seafood Restaurant"],
-    open_now: true,
+    open_start: 11,
+    open_end: 2,
     hours_display: "Open Daily 11 AM - 2 AM",
     amenities: ["Haunted Vibe", "Spacious Garden", "Local Drafts", "Historic Building"]
   },
@@ -86,7 +91,9 @@ export const MOCK_VENUES = [
     price: 1,
     rating: 8.6,
     categories: ["Dive Bar", "Music Venue", "Arcade"],
-    open_now: true,
+    open_24h: true,
+    open_start: 0,
+    open_end: 0,
     hours_display: "Open 24 Hours / Live Shows 6 PM - 2 AM",
     amenities: ["Live Bands", "Pinball Arcade", "Craft Beer", "No Cover Charge"]
   },
@@ -100,7 +107,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.0,
     categories: ["Sports Bar", "Dance Club"],
-    open_now: true,
+    open_start: 11,
+    open_end: 2,
     hours_display: "Open Daily 11 AM - 2 AM",
     amenities: ["Huge Patio", "Big Screens", "DJs", "College Crowd"]
   },
@@ -115,7 +123,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 7.8,
     categories: ["Beer Garden", "Pizzeria", "Nightclub"],
-    open_now: true,
+    open_start: 15,
+    open_end: 2,
     hours_display: "Open Daily 3 PM - 2 AM",
     amenities: ["Lively Atmosphere", "Outdoor Seating", "Valet Parking", "High Energy"]
   },
@@ -129,7 +138,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 7.9,
     categories: ["Nightclub", "Lounge"],
-    open_now: true,
+    open_start: 21,
+    open_end: 2,
     hours_display: "Open Daily 9 PM - 2 AM",
     amenities: ["DJs", "VIP Bottle Service", "Light Show", "Trendy Crowd"]
   },
@@ -143,7 +153,8 @@ export const MOCK_VENUES = [
     price: 1,
     rating: 8.4,
     categories: ["Dive Bar", "Historic Tavern"],
-    open_now: true,
+    open_start: 10,
+    open_end: 2,
     hours_display: "Open Daily 10 AM - 2 AM",
     amenities: ["Christmas Lights Year-Round", "Historic Vibe", "Outdoor Patio", "Cheap Drinks"]
   },
@@ -158,7 +169,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 9.3,
     categories: ["Speakeasy", "Cocktail Bar"],
-    open_now: true,
+    open_start: 17,
+    open_end: 2,
     hours_display: "Open Daily 5 PM - 2 AM",
     amenities: ["Phone Booth Entrance", "Hot Dogs", "Reservations Required", "Intimate Spot"]
   },
@@ -172,7 +184,8 @@ export const MOCK_VENUES = [
     price: 4,
     rating: 9.5,
     categories: ["Cocktail Lounge", "High-End Cocktail Bar"],
-    open_now: true,
+    open_start: 18,
+    open_end: 2,
     hours_display: "Open Daily 6 PM - 2 AM",
     amenities: ["Craft Cocktails", "Intimate Setting", "Strict Door Limits", "Award-Winning Menu"]
   },
@@ -186,7 +199,8 @@ export const MOCK_VENUES = [
     price: 1,
     rating: 9.0,
     categories: ["Historic Irish Pub", "Tavern"],
-    open_now: true,
+    open_start: 11,
+    open_end: 1,
     hours_display: "Open Daily 11 AM - 1 AM",
     amenities: ["Sawdust Floors", "Light & Dark Ale Only", "Historic Memorabilia", "Cash Only"]
   },
@@ -201,7 +215,8 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.8,
     categories: ["Music Venue", "Beer Garden", "Patio Bar"],
-    open_now: true,
+    open_start: 12,
+    open_end: 2,
     hours_display: "Open Daily 12 PM - 2 AM",
     amenities: ["Large Courtyard", "Taco Truck", "Live Shows", "Fire Pit"]
   },
@@ -215,7 +230,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 9.2,
     categories: ["Bowling Alley", "Concert Venue", "Restaurant & Bar"],
-    open_now: true,
+    open_start: 17,
+    open_end: 0,
     hours_display: "Open Daily 5 PM - Midnight",
     amenities: ["Bowling Lanes", "Live Concerts", "Blue Ribbon Fried Chicken", "Huge Space"]
   },
@@ -229,7 +245,9 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 9.4,
     categories: ["Dance Club", "Nightclub", "Art Space"],
-    open_now: true,
+    open_start: 22,
+    open_end: 4,
+    open_days: [4, 5, 6, 0],
     hours_display: "Open Thu-Sun 10 PM - 4 AM",
     amenities: ["Aerial Performers", "Themed Costumes Required", "Outdoor Deck", "Vibrant Decor"]
   },
@@ -244,7 +262,9 @@ export const MOCK_VENUES = [
     price: 2,
     rating: 8.9,
     categories: ["Corporate Cafe", "Lounge"],
-    open_now: true,
+    open_start: 8,
+    open_end: 17,
+    open_days: [1, 2, 3, 4, 5],
     hours_display: "Open Mon-Fri 8 AM - 5 PM",
     amenities: ["Apple Employees Only", "Scenic Seating", "Reviewer Mode", "Gourmet Foods"]
   },
@@ -258,7 +278,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 9.0,
     categories: ["Developer Hangout", "Cocktail Bar"],
-    open_now: true,
+    open_start: 16,
+    open_end: 22,
     hours_display: "Open Daily 4 PM - 10 PM",
     amenities: ["Apple History Trivia", "Craft Beer on Tap", "Developer Network", "Outdoor Deck"]
   },
@@ -272,7 +293,8 @@ export const MOCK_VENUES = [
     price: 3,
     rating: 9.2,
     categories: ["Modern Cafe", "Sightseeing Spot"],
-    open_now: true,
+    open_start: 9,
+    open_end: 18,
     hours_display: "Open Daily 9 AM - 6 PM",
     amenities: ["Scenic Terrace", "Apple Merchandise Shop", "Pour-Over Coffee", "iPads for AR Campus Tour"]
   }
@@ -411,7 +433,55 @@ function getOfflineSearchResults(query, filterCity) {
     );
   }
 
-  return Promise.resolve(results);
+  // Dynamically resolve open_now for each mock venue based on user's current clock
+  return Promise.resolve(results.map(v => ({
+    ...v,
+    open_now: isOpenNow(v)
+  })));
+}
+
+function isOpenNow(venue) {
+  if (venue.open_24h) return true;
+  
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 (Sun) to 6 (Sat)
+  const currentHour = now.getHours() + now.getMinutes() / 60;
+
+  const days = venue.open_days || [0, 1, 2, 3, 4, 5, 6];
+  const isDayOpen = (d) => days.includes(d);
+
+  const start = venue.open_start;
+  const end = venue.open_end;
+
+  if (start === undefined || end === undefined) {
+    return false;
+  }
+
+  // 1. Check business day starting today
+  if (isDayOpen(currentDay)) {
+    if (end > start) {
+      if (currentHour >= start && currentHour < end) {
+        return true;
+      }
+    } else {
+      // Overlap past midnight (e.g. 4 PM - 2 AM)
+      if (currentHour >= start) {
+        return true;
+      }
+    }
+  }
+
+  // 2. Check business day starting yesterday
+  const yesterday = (currentDay + 6) % 7;
+  if (isDayOpen(yesterday)) {
+    if (end < start) {
+      if (currentHour < end) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 function extractAmenities(place) {
