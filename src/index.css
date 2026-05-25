@@ -1,5 +1,19 @@
 @import "98.css";
 
+:root {
+  /* Default/Classic theme variables */
+  --player-border: #ff99cc;
+  --player-inner-bg: #003399;
+  --player-screen-bg: #000000;
+  --player-screen-text: #ff66cc;
+  --player-screen-subtext: #ff99cc;
+  --player-accent: #ff007f;
+  --player-btn-active: #39ff14;
+  --player-btn-inactive: #ff66cc;
+  --player-progress-fill: linear-gradient(90deg, #ff66cc 0%, #ff007f 100%);
+  --player-visualizer-bar: #ff66cc;
+}
+
 /* Retro font loading and pixelated styling overrides */
 body {
   margin: 0;
@@ -745,18 +759,6 @@ legend {
   margin-bottom: 12px;
   width: 100%;
   box-sizing: border-box;
-
-  /* Default/Classic theme variables */
-  --player-border: #ff99cc;
-  --player-inner-bg: #003399;
-  --player-screen-bg: #000000;
-  --player-screen-text: #ff66cc;
-  --player-screen-subtext: #ff99cc;
-  --player-accent: #ff007f;
-  --player-btn-active: #39ff14;
-  --player-btn-inactive: #ff66cc;
-  --player-progress-fill: linear-gradient(90deg, #ff66cc 0%, #ff007f 100%);
-  --player-visualizer-bar: #ff66cc;
 
   border: 1px solid var(--player-border) !important;
 }
