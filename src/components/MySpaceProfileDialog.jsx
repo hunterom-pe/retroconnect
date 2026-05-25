@@ -249,7 +249,7 @@ export default function MySpaceProfileDialog({
 
             {/* Emoji Avatar Customizer — edit mode only */}
             {isEditing && (
-              <div style={{ border: "1px solid #ccc", backgroundColor: "#fff", padding: "8px", marginBottom: "8px" }}>
+              <div style={{ border: "1px solid #ff99cc", backgroundColor: "#fff", padding: "8px", marginBottom: "8px" }}>
                 <div style={{ fontSize: "11px", fontWeight: "bold", marginBottom: "6px", color: "#333" }}>Customize Avatar (pick exactly 3):</div>
                 
                 {/* Currently selected emojis */}
@@ -309,10 +309,10 @@ export default function MySpaceProfileDialog({
               </div>
             )}
 
-            <div className="profile-details-table">
+            <div className="profile-details-table" style={isEditing ? { border: "1px solid #ff99cc", backgroundColor: "#fff", padding: "6px" } : {}}>
               {isEditing ? (
                 <div style={{ display: "flex", flexDirection: "column", gap: "4px", margin: "4px 0" }}>
-                  <label style={{ fontSize: "11px", fontWeight: "bold" }}>Mood:</label>
+                  <label style={{ fontSize: "11px", fontWeight: "bold", color: "#333" }}>Mood:</label>
                   <select 
                     value={editMood} 
                     onChange={(e) => setEditMood(e.target.value)} 
@@ -351,7 +351,7 @@ export default function MySpaceProfileDialog({
             {/* Custom Theme Selector (only visible in edit mode) */}
             {isEditing && (
               <>
-                <div style={{ display: "flex", flexDirection: "column", gap: "2px", margin: "4px 0", padding: "6px", border: "1px solid #ccc", backgroundColor: "#fff" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2px", margin: "4px 0", padding: "6px", border: "1px solid #ff99cc", backgroundColor: "#fff" }}>
                   <label style={{ fontSize: "11px", fontWeight: "bold", color: "#333" }}>Profile Theme:</label>
                   <select 
                     value={editProfileTheme} 
@@ -364,7 +364,7 @@ export default function MySpaceProfileDialog({
                     <option value="sunset">Sunset 🌅</option>
                   </select>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: "2px", margin: "4px 0", padding: "6px", border: "1px solid #ccc", backgroundColor: "#fff" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2px", margin: "4px 0", padding: "6px", border: "1px solid #ff99cc", backgroundColor: "#fff" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <label style={{ fontSize: "11px", fontWeight: "bold", color: "#333" }}>Spotify Track URI:</label>
                     <button 
