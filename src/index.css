@@ -1622,6 +1622,327 @@ legend {
   border-bottom: 2px solid #ff4500 !important;
 }
 
+/* ==========================================
+   Goth Theme
+   ========================================== */
+.myspace-theme-goth {
+  --player-border: #8b0000;
+  --player-inner-bg: #121212;
+  --player-screen-bg: rgba(20, 20, 20, 0.95);
+  --player-screen-text: #ff3333;
+  --player-screen-subtext: #888888;
+  --player-accent: #8b0000;
+  --player-btn-active: #ff3333;
+  --player-btn-inactive: #555555;
+  --player-progress-fill: linear-gradient(90deg, #8b0000 0%, #ff3333 100%);
+  --player-visualizer-bar: #ff3333;
+}
+
+.myspace-theme-goth .window {
+  border: 3px solid #8b0000 !important;
+}
+
+.myspace-theme-goth .title-bar,
+.myspace-theme-goth .window-title {
+  background: linear-gradient(90deg, #000000 0%, #300000 100%) !important;
+}
+.myspace-theme-goth .title-bar-text {
+  color: #ff3333 !important;
+}
+.myspace-theme-goth .title-bar button {
+  background-color: #121212 !important;
+  border: 1px solid #8b0000 !important;
+  min-height: 14px !important;
+  min-width: 16px !important;
+  padding: 0 !important;
+}
+.myspace-theme-goth .title-bar button::after {
+  content: "x";
+  color: #ff3333;
+  font-family: monospace;
+  font-size: 10px;
+  display: block;
+}
+
+.myspace-theme-goth .myspace-profile-body {
+  background: linear-gradient(135deg, #0d0d0d, #250930) !important;
+  color: #e0e0e0 !important;
+}
+
+.myspace-theme-goth .section-header-orange {
+  background-color: rgba(139, 0, 0, 0.3) !important;
+  color: #ff3333 !important;
+  border-left-color: #ff3333 !important;
+  border: 1px solid #8b0000;
+}
+
+.myspace-theme-goth .profile-name-header {
+  color: #ff3333 !important;
+}
+
+.myspace-theme-goth .profile-headline {
+  color: #888888 !important;
+}
+
+.myspace-theme-goth .profile-details-table,
+.myspace-theme-goth .profile-bio-box,
+.myspace-theme-goth .top8-container {
+  background-color: rgba(13, 13, 13, 0.85) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #8b0000 !important;
+}
+
+.myspace-theme-goth .profile-photo-box {
+  background-color: rgba(13, 13, 13, 0.85) !important;
+  border: 2px solid #ff3333 !important;
+}
+
+.myspace-theme-goth .contact-box {
+  border-color: #8b0000 !important;
+  background-color: transparent !important;
+}
+
+.myspace-theme-goth .contact-box-header {
+  background-color: #8b0000 !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-goth .contact-action {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #ff3333 !important;
+  border-color: #8b0000 !important;
+}
+
+.myspace-theme-goth .contact-action:hover {
+  background-color: #ff3333 !important;
+  color: #000000 !important;
+}
+
+.myspace-theme-goth .friend-avatar-wrapper {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  border-color: #ff3333 !important;
+}
+
+.myspace-theme-goth .friend-name {
+  color: #ff3333 !important;
+}
+
+.myspace-theme-goth .profile-edit-card {
+  border: 1px solid #8b0000 !important;
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #e0e0e0 !important;
+}
+
+.myspace-theme-goth input[type="text"],
+.myspace-theme-goth textarea,
+.myspace-theme-goth select {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #8b0000 !important;
+}
+.myspace-theme-goth input[type="text"]::placeholder,
+.myspace-theme-goth textarea::placeholder {
+  color: #555555 !important;
+  opacity: 0.6;
+}
+
+.myspace-theme-goth .myspace-profile-body button {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #ff3333 !important;
+  border: 1px solid #8b0000 !important;
+}
+.myspace-theme-goth .myspace-profile-body button:hover {
+  background-color: #ff3333 !important;
+  color: #000000 !important;
+}
+
+.myspace-theme-goth .favorited-bar-item {
+  border-color: #8b0000 !important;
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #e0e0e0 !important;
+}
+.myspace-theme-goth .favorited-bar-item span:last-child {
+  color: #ff3333 !important;
+}
+
+.myspace-theme-goth .emoji-presets-grid {
+  border: 1px solid #8b0000 !important;
+  background-color: rgba(13, 13, 13, 0.9) !important;
+}
+.myspace-theme-goth .selected-emoji-btn {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  border: 1px inset #8b0000 !important;
+}
+.myspace-theme-goth .profile-help-btn {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+  color: #ff3333 !important;
+  border: 1px solid #8b0000 !important;
+}
+.myspace-theme-goth .profile-top-section {
+  border-bottom: 2px solid #8b0000 !important;
+}
+
+/* ==========================================
+   Pokémon Theme
+   ========================================== */
+.myspace-theme-pokemon {
+  --player-border: #3b4cca;
+  --player-inner-bg: #ffde00;
+  --player-screen-bg: #ffffff;
+  --player-screen-text: #111111;
+  --player-screen-subtext: #3b4cca;
+  --player-accent: #ff0000;
+  --player-btn-active: #ff0000;
+  --player-btn-inactive: #888888;
+  --player-progress-fill: linear-gradient(90deg, #ff0000 0%, #ffde00 100%);
+  --player-visualizer-bar: #3b4cca;
+}
+
+.myspace-theme-pokemon .window {
+  border: 3px solid #3b4cca !important;
+}
+
+.myspace-theme-pokemon .title-bar,
+.myspace-theme-pokemon .window-title {
+  background: linear-gradient(90deg, #ff0000 0%, #cc0000 100%) !important;
+}
+.myspace-theme-pokemon .title-bar-text {
+  color: #ffffff !important;
+}
+.myspace-theme-pokemon .title-bar button {
+  background-color: #ffffff !important;
+  border: 1px solid #3b4cca !important;
+  min-height: 14px !important;
+  min-width: 16px !important;
+  padding: 0 !important;
+}
+.myspace-theme-pokemon .title-bar button::after {
+  content: "x";
+  color: #ff0000;
+  font-family: monospace;
+  font-size: 10px;
+  display: block;
+}
+
+.myspace-theme-pokemon .myspace-profile-body {
+  background: linear-gradient(135deg, #f22613, #f9bf3b) !important;
+  color: #111111 !important;
+}
+
+.myspace-theme-pokemon .section-header-orange {
+  background-color: rgba(59, 76, 202, 0.2) !important;
+  color: #3b4cca !important;
+  border-left-color: #ff0000 !important;
+  border: 1px solid #3b4cca;
+}
+
+.myspace-theme-pokemon .profile-name-header {
+  color: #3b4cca !important;
+}
+
+.myspace-theme-pokemon .profile-headline {
+  color: #222222 !important;
+}
+
+.myspace-theme-pokemon .profile-details-table,
+.myspace-theme-pokemon .profile-bio-box,
+.myspace-theme-pokemon .top8-container {
+  background-color: rgba(240, 240, 240, 0.95) !important;
+  color: #111111 !important;
+  border: 2px solid #3b4cca !important;
+}
+
+.myspace-theme-pokemon .profile-photo-box {
+  background-color: rgba(240, 240, 240, 0.95) !important;
+  border: 2px solid #ff0000 !important;
+}
+
+.myspace-theme-pokemon .contact-box {
+  border-color: #3b4cca !important;
+  background-color: transparent !important;
+}
+
+.myspace-theme-pokemon .contact-box-header {
+  background-color: #3b4cca !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-pokemon .contact-action {
+  background-color: rgba(240, 240, 240, 0.9) !important;
+  color: #3b4cca !important;
+  border-color: #3b4cca !important;
+}
+
+.myspace-theme-pokemon .contact-action:hover {
+  background-color: #ffde00 !important;
+  color: #111111 !important;
+}
+
+.myspace-theme-pokemon .friend-avatar-wrapper {
+  background-color: rgba(240, 240, 240, 0.9) !important;
+  border-color: #ff0000 !important;
+}
+
+.myspace-theme-pokemon .friend-name {
+  color: #3b4cca !important;
+  font-weight: bold !important;
+}
+
+.myspace-theme-pokemon .profile-edit-card {
+  border: 2px solid #3b4cca !important;
+  background-color: rgba(240, 240, 240, 0.95) !important;
+  color: #111111 !important;
+}
+
+.myspace-theme-pokemon input[type="text"],
+.myspace-theme-pokemon textarea,
+.myspace-theme-pokemon select {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #3b4cca !important;
+}
+.myspace-theme-pokemon input[type="text"]::placeholder,
+.myspace-theme-pokemon textarea::placeholder {
+  color: #888888 !important;
+  opacity: 0.6;
+}
+
+.myspace-theme-pokemon .myspace-profile-body button {
+  background-color: #ffffff !important;
+  color: #3b4cca !important;
+  border: 1px solid #3b4cca !important;
+}
+.myspace-theme-pokemon .myspace-profile-body button:hover {
+  background-color: #3b4cca !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-pokemon .favorited-bar-item {
+  border-color: #3b4cca !important;
+  background-color: rgba(240, 240, 240, 0.9) !important;
+  color: #111111 !important;
+}
+.myspace-theme-pokemon .favorited-bar-item span:last-child {
+  color: #ff0000 !important;
+}
+
+.myspace-theme-pokemon .emoji-presets-grid {
+  border: 1px solid #3b4cca !important;
+  background-color: rgba(240, 240, 240, 0.9) !important;
+}
+.myspace-theme-pokemon .selected-emoji-btn {
+  background-color: rgba(240, 240, 240, 0.9) !important;
+  border: 1px inset #3b4cca !important;
+}
+.myspace-theme-pokemon .profile-help-btn {
+  background-color: rgba(240, 240, 240, 0.9) !important;
+  color: #3b4cca !important;
+  border: 1px solid #3b4cca !important;
+}
+.myspace-theme-pokemon .profile-top-section {
+  border-bottom: 2px solid #3b4cca !important;
+}
+
 /* 4. Classic Theme Overrides */
 .myspace-theme-classic input[type="text"],
 .myspace-theme-classic textarea,

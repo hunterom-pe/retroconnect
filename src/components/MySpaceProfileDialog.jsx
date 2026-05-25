@@ -204,6 +204,8 @@ export default function MySpaceProfileDialog({
       case "glitter": return "myspace-theme-glitter";
       case "cyberpunk": return "myspace-theme-cyberpunk";
       case "sunset": return "myspace-theme-sunset";
+      case "goth": return "myspace-theme-goth";
+      case "pokemon": return "myspace-theme-pokemon";
       default: return "myspace-theme-classic";
     }
   };
@@ -362,6 +364,8 @@ export default function MySpaceProfileDialog({
                     <option value="glitter">Glitter 💖</option>
                     <option value="cyberpunk">Cyberpunk 🟢</option>
                     <option value="sunset">Sunset 🌅</option>
+                    <option value="goth">Goth 🖤</option>
+                    <option value="pokemon">Pokémon ⚡</option>
                   </select>
                 </div>
                 <div className="profile-edit-card" style={{ display: "flex", flexDirection: "column", gap: "8px", margin: "4px 0" }}>
