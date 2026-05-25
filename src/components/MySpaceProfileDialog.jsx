@@ -69,6 +69,7 @@ export default function MySpaceProfileDialog({
   userId,
   currentUserId,
   onSaveProfile,
+  unlockedThemes = [],
   favorited_bars = [],
   venues = [],
   onSelectVenue,
@@ -89,6 +90,52 @@ export default function MySpaceProfileDialog({
   const [showHelpModal, setShowHelpModal] = useState(false);
   const [profileError, setProfileError] = useState("");
   const [friendProfiles, setFriendProfiles] = useState({});
+
+  // IAP Simulation states
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+  const [checkoutProduct, setCheckoutProduct] = useState(null);
+  const [checkoutStep, setCheckoutStep] = useState("idle");
+  const [checkoutStatusText, setCheckoutStatusText] = useState("");
+
+  const ownedThemes = unlockedThemes && unlockedThemes.length ? unlockedThemes : ["classic", "glitter", "cyberpunk", "sunset", "goth", "pokemon"];
+
+  const isThemeUnlocked = (themeName) => {
+    const freeThemes = ["classic", "glitter", "cyberpunk", "sunset", "goth", "pokemon"];
+    if (freeThemes.includes(themeName)) return true;
+    return ownedThemes.includes(themeName);
+  };
+
+  const handleSimulatePurchase = () => {
+    setCheckoutStep("processing");
+    setCheckoutStatusText("CONNECTING TO APPLE APP STORE...");
+    
+    setTimeout(() => {
+      setCheckoutStatusText("PROCESSING SECURE TRANSACTION...");
+      
+      setTimeout(() => {
+        setCheckoutStatusText("VERIFYING PURCHASES RECEIPT...");
+        
+        setTimeout(async () => {
+          if (onSaveProfile) {
+            const updatedUnlocked = [
+              ...new Set([...ownedThemes, "one-piece", "demon-slayer", "jujutsu-kaisen"])
+            ];
+            await onSaveProfile({
+              unlockedThemes: updatedUnlocked
+            });
+          }
+          setCheckoutStep("success");
+        }, 800);
+      }, 800);
+    }, 800);
+  };
+
+  const handleCloseSuccess = () => {
+    setShowCheckoutModal(false);
+    if (checkoutProduct && checkoutProduct.targetTheme) {
+      setEditProfileTheme(checkoutProduct.targetTheme);
+    }
+  };
 
   const favoritedVenueList = (favorited_bars || []).map(id => {
     return (venues || []).find(v => v.fsq_id === id);
@@ -206,6 +253,9 @@ export default function MySpaceProfileDialog({
       case "sunset": return "myspace-theme-sunset";
       case "goth": return "myspace-theme-goth";
       case "pokemon": return "myspace-theme-pokemon";
+      case "one-piece": return "myspace-theme-onepiece";
+      case "demon-slayer": return "myspace-theme-demonslayer";
+      case "jujutsu-kaisen": return "myspace-theme-jujutsukaisen";
       default: return "myspace-theme-classic";
     }
   };
@@ -357,7 +407,22 @@ export default function MySpaceProfileDialog({
                   <label style={{ fontSize: "11px", fontWeight: "bold", color: "inherit" }}>Profile Theme:</label>
                   <select 
                     value={editProfileTheme} 
-                    onChange={(e) => setEditProfileTheme(e.target.value)}
+                    onChange={(e) => {
+                      const selectedTheme = e.target.value;
+                      if (!isThemeUnlocked(selectedTheme)) {
+                        setCheckoutProduct({
+                          id: "weeb_pack",
+                          name: "Weeb Theme Bundle",
+                          cost: "$1.99",
+                          themes: ["one-piece", "demon-slayer", "jujutsu-kaisen"],
+                          targetTheme: selectedTheme
+                        });
+                        setCheckoutStep("idle");
+                        setShowCheckoutModal(true);
+                      } else {
+                        setEditProfileTheme(selectedTheme);
+                      }
+                    }}
                     style={{ width: "100%", padding: "2px" }}
                   >
                     <option value="classic">Classic (Blue/Pink)</option>
@@ -366,7 +431,32 @@ export default function MySpaceProfileDialog({
                     <option value="sunset">Sunset 🌅</option>
                     <option value="goth">Goth 🖤</option>
                     <option value="pokemon">Pokémon ⚡</option>
+                    <option value="one-piece">
+                      {isThemeUnlocked("one-piece") ? "One Piece ⚓" : "One Piece ⚓ (🔒 Weeb Pack - $1.99)"}
+                    </option>
+                    <option value="demon-slayer">
+                      {isThemeUnlocked("demon-slayer") ? "Demon Slayer ⚔️" : "Demon Slayer ⚔️ (🔒 Weeb Pack - $1.99)"}
+                    </option>
+                    <option value="jujutsu-kaisen">
+                      {isThemeUnlocked("jujutsu-kaisen") ? "Jujutsu Kaisen 💀" : "Jujutsu Kaisen 💀 (🔒 Weeb Pack - $1.99)"}
+                    </option>
                   </select>
+                  <div style={{ marginTop: "4px", fontSize: "10px" }}>
+                    <button
+                      type="button"
+                      style={{ background: "none", border: "none", color: "blue", textDecoration: "underline", cursor: "pointer", padding: 0 }}
+                      onClick={async () => {
+                        if (onSaveProfile) {
+                          await onSaveProfile({
+                            unlockedThemes: ["classic", "glitter", "cyberpunk", "sunset", "goth", "pokemon"]
+                          });
+                          alert("Theme purchases reset! Anime themes are now locked again.");
+                        }
+                      }}
+                    >
+                      Reset Theme Purchases (Developer Test)
+                    </button>
+                  </div>
                 </div>
                 <div className="profile-edit-card" style={{ display: "flex", flexDirection: "column", gap: "8px", margin: "4px 0" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
@@ -718,6 +808,67 @@ export default function MySpaceProfileDialog({
               >
                 OK
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SECURE CHECKOUT MODAL OVERLAY */}
+      {showCheckoutModal && checkoutProduct && (
+        <div className="modal-overlay" style={{ zIndex: 999999, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div className="window" style={{ width: "320px" }}>
+            <div className="title-bar">
+              <div className="title-bar-text">asl Secure Billing Gateway</div>
+              <div className="title-bar-controls">
+                <button aria-label="Close" onClick={() => setShowCheckoutModal(false)} />
+              </div>
+            </div>
+            <div className="window-body" style={{ padding: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
+              {checkoutStep === "idle" && (
+                <>
+                  <div style={{ textAlign: "center", fontSize: "24px", margin: "10px 0" }}>💳🔒</div>
+                  <p style={{ margin: 0, fontWeight: "bold", fontSize: "14px", textAlign: "center" }}>
+                    Secure In-App Purchase
+                  </p>
+                  <div className="profile-edit-card" style={{ padding: "10px", margin: 0 }}>
+                    <p style={{ margin: "0 0 6px 0" }}><strong>Item:</strong> {checkoutProduct.name}</p>
+                    <p style={{ margin: "0 0 6px 0" }}><strong>Price:</strong> {checkoutProduct.cost}</p>
+                    <p style={{ margin: 0, fontSize: "11px", color: "#666" }}>
+                      Unlocks 3 themes: One Piece ⚓, Demon Slayer ⚔️, and Jujutsu Kaisen 💀.
+                    </p>
+                  </div>
+                  <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end", marginTop: "10px" }}>
+                    <button onClick={() => setShowCheckoutModal(false)}>Cancel</button>
+                    <button className="default" onClick={handleSimulatePurchase}>Simulate Purchase</button>
+                  </div>
+                </>
+              )}
+
+              {checkoutStep === "processing" && (
+                <div style={{ textAlign: "center", padding: "20px 0" }}>
+                  <div className="retro-blink" style={{ fontWeight: "bold", color: "#003399", marginBottom: "15px" }}>
+                    {checkoutStatusText}
+                  </div>
+                  <div style={{ width: "100%", height: "12px", backgroundColor: "#dfdfdf", border: "1px solid #808080", padding: "1px", boxSizing: "border-box" }}>
+                    <div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, #003399 0%, #ff66cc 100%)" }} />
+                  </div>
+                </div>
+              )}
+
+              {checkoutStep === "success" && (
+                <>
+                  <div style={{ textAlign: "center", fontSize: "28px", color: "green", margin: "10px 0" }}>✅ APPROVED</div>
+                  <p style={{ margin: 0, fontWeight: "bold", textAlign: "center", color: "green" }}>
+                    Purchase Successful!
+                  </p>
+                  <p style={{ margin: "6px 0", fontSize: "12px", textAlign: "center" }}>
+                    The "Weeb" Anime themes bundle has been permanently unlocked and credited to your node.
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                    <button className="default" onClick={handleCloseSuccess}>OK</button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -164,7 +164,8 @@ export default function App() {
           uid: user.uid,
           email: user.email || "",
           uuid: deviceUuid,
-          lastLogin: Date.now()
+          lastLogin: Date.now(),
+          unlockedThemes: ["classic", "glitter", "cyberpunk", "sunset", "goth", "pokemon"]
         }, true);
 
         // Subscribe to user flags and ban status in real-time
@@ -1878,6 +1879,11 @@ export default function App() {
             onOpenChat={handleOpenChat}
             currentUserId={currentUser?.uid}
             onSaveProfile={handleSaveProfile}
+            unlockedThemes={
+              selectedProfileUser.userId === currentUser?.uid 
+                ? (userDoc?.unlockedThemes || []) 
+                : (selectedProfileUser.unlockedThemes || [])
+            }
             favorited_bars={
               selectedProfileUser.userId === currentUser?.uid 
                 ? (userDoc?.favorited_bars || []) 

@@ -1945,6 +1945,504 @@ legend {
   border-bottom: 2px solid #3b4cca !important;
 }
 
+/* ==========================================
+   One Piece Theme
+   ========================================== */
+.myspace-theme-onepiece {
+  --player-border: #f9d342;
+  --player-inner-bg: #0f4c81;
+  --player-screen-bg: #faf5e6;
+  --player-screen-text: #111111;
+  --player-screen-subtext: #0f4c81;
+  --player-accent: #d9534f;
+  --player-btn-active: #d9534f;
+  --player-btn-inactive: #888888;
+  --player-progress-fill: linear-gradient(90deg, #d9534f 0%, #f9d342 100%);
+  --player-visualizer-bar: #0f4c81;
+}
+
+.myspace-theme-onepiece .window {
+  border: 3px solid #f9d342 !important;
+}
+
+.myspace-theme-onepiece .title-bar,
+.myspace-theme-onepiece .window-title {
+  background: linear-gradient(90deg, #0f4c81 0%, #1d70b8 100%) !important;
+}
+.myspace-theme-onepiece .title-bar-text {
+  color: #ffffff !important;
+}
+.myspace-theme-onepiece .title-bar button {
+  background-color: #f9d342 !important;
+  border: 1px solid #0f4c81 !important;
+  min-height: 14px !important;
+  min-width: 16px !important;
+  padding: 0 !important;
+}
+.myspace-theme-onepiece .title-bar button::after {
+  content: "x";
+  color: #0f4c81;
+  font-family: monospace;
+  font-size: 10px;
+  display: block;
+}
+
+.myspace-theme-onepiece .myspace-profile-body {
+  background: linear-gradient(135deg, #0f4c81, #1d70b8, #f9d342) !important;
+  color: #111111 !important;
+}
+
+.myspace-theme-onepiece .section-header-orange {
+  background-color: rgba(249, 211, 66, 0.3) !important;
+  color: #0f4c81 !important;
+  border-left-color: #d9534f !important;
+  border: 1px solid #f9d342;
+}
+
+.myspace-theme-onepiece .profile-name-header {
+  color: #f9d342 !important;
+  text-shadow: 1px 1px 2px #0f4c81 !important;
+}
+
+.myspace-theme-onepiece .profile-headline {
+  color: #ffffff !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 1px #000000 !important;
+}
+
+.myspace-theme-onepiece .profile-details-table,
+.myspace-theme-onepiece .profile-bio-box,
+.myspace-theme-onepiece .top8-container {
+  background-color: rgba(250, 245, 230, 0.95) !important;
+  color: #111111 !important;
+  border: 2px solid #0f4c81 !important;
+}
+
+.myspace-theme-onepiece .profile-photo-box {
+  background-color: rgba(250, 245, 230, 0.95) !important;
+  border: 2px solid #d9534f !important;
+}
+
+.myspace-theme-onepiece .contact-box {
+  border-color: #0f4c81 !important;
+  background-color: transparent !important;
+}
+
+.myspace-theme-onepiece .contact-box-header {
+  background-color: #0f4c81 !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-onepiece .contact-action {
+  background-color: rgba(250, 245, 230, 0.9) !important;
+  color: #0f4c81 !important;
+  border-color: #f9d342 !important;
+}
+
+.myspace-theme-onepiece .contact-action:hover {
+  background-color: #f9d342 !important;
+  color: #0f4c81 !important;
+}
+
+.myspace-theme-onepiece .friend-avatar-wrapper {
+  background-color: rgba(250, 245, 230, 0.9) !important;
+  border-color: #f9d342 !important;
+}
+
+.myspace-theme-onepiece .friend-name {
+  color: #0f4c81 !important;
+  font-weight: bold !important;
+}
+
+.myspace-theme-onepiece .profile-edit-card {
+  border: 2px solid #0f4c81 !important;
+  background-color: rgba(250, 245, 230, 0.95) !important;
+  color: #111111 !important;
+}
+
+.myspace-theme-onepiece input[type="text"],
+.myspace-theme-onepiece textarea,
+.myspace-theme-onepiece select {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #0f4c81 !important;
+}
+.myspace-theme-onepiece input[type="text"]::placeholder,
+.myspace-theme-onepiece textarea::placeholder {
+  color: #888888 !important;
+  opacity: 0.6;
+}
+
+.myspace-theme-onepiece .myspace-profile-body button {
+  background-color: #f9d342 !important;
+  color: #0f4c81 !important;
+  border: 1px solid #0f4c81 !important;
+}
+.myspace-theme-onepiece .myspace-profile-body button:hover {
+  background-color: #0f4c81 !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-onepiece .favorited-bar-item {
+  border-color: #f9d342 !important;
+  background-color: rgba(250, 245, 230, 0.9) !important;
+  color: #0f4c81 !important;
+}
+.myspace-theme-onepiece .favorited-bar-item span:last-child {
+  color: #d9534f !important;
+}
+
+.myspace-theme-onepiece .emoji-presets-grid {
+  border: 1px solid #0f4c81 !important;
+  background-color: rgba(250, 245, 230, 0.9) !important;
+}
+.myspace-theme-onepiece .selected-emoji-btn {
+  background-color: rgba(250, 245, 230, 0.9) !important;
+  border: 1px inset #0f4c81 !important;
+}
+.myspace-theme-onepiece .profile-help-btn {
+  background-color: rgba(250, 245, 230, 0.9) !important;
+  color: #0f4c81 !important;
+  border: 1px solid #f9d342 !important;
+}
+.myspace-theme-onepiece .profile-top-section {
+  border-bottom: 2px solid #0f4c81 !important;
+}
+
+/* ==========================================
+   Demon Slayer Theme
+   ========================================== */
+.myspace-theme-demonslayer {
+  --player-border: #00b159;
+  --player-inner-bg: #1a1a1a;
+  --player-screen-bg: #ffb7c5;
+  --player-screen-text: #1a1a1a;
+  --player-screen-subtext: #00b159;
+  --player-accent: #00b159;
+  --player-btn-active: #00b159;
+  --player-btn-inactive: #555555;
+  --player-progress-fill: linear-gradient(90deg, #00b159 0%, #ffb7c5 100%);
+  --player-visualizer-bar: #1a1a1a;
+}
+
+.myspace-theme-demonslayer .window {
+  border: 3px solid #00b159 !important;
+}
+
+.myspace-theme-demonslayer .title-bar,
+.myspace-theme-demonslayer .window-title {
+  background: linear-gradient(90deg, #1a1a1a 0%, #00b159 100%) !important;
+}
+.myspace-theme-demonslayer .title-bar-text {
+  color: #ffffff !important;
+}
+.myspace-theme-demonslayer .title-bar button {
+  background-color: #ffb7c5 !important;
+  border: 1px solid #1a1a1a !important;
+  min-height: 14px !important;
+  min-width: 16px !important;
+  padding: 0 !important;
+}
+.myspace-theme-demonslayer .title-bar button::after {
+  content: "x";
+  color: #1a1a1a;
+  font-family: monospace;
+  font-size: 10px;
+  display: block;
+}
+
+.myspace-theme-demonslayer .myspace-profile-body {
+  background-color: #00b159 !important;
+  background-image: 
+    linear-gradient(45deg, #1a1a1a 25%, transparent 25%), 
+    linear-gradient(-45deg, #1a1a1a 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #1a1a1a 75%), 
+    linear-gradient(-45deg, transparent 75%, #1a1a1a 75%) !important;
+  background-size: 40px 40px !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-demonslayer .section-header-orange {
+  background-color: rgba(0, 177, 89, 0.3) !important;
+  color: #ffb7c5 !important;
+  border-left-color: #ffb7c5 !important;
+  border: 1px solid #00b159;
+}
+
+.myspace-theme-demonslayer .profile-name-header {
+  color: #ffb7c5 !important;
+  text-shadow: 2px 2px 2px #000000 !important;
+}
+
+.myspace-theme-demonslayer .profile-headline {
+  color: #e0e0e0 !important;
+  font-style: italic !important;
+}
+
+.myspace-theme-demonslayer .profile-details-table,
+.myspace-theme-demonslayer .profile-bio-box,
+.myspace-theme-demonslayer .top8-container {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  color: #ffffff !important;
+  border: 2px solid #00b159 !important;
+}
+
+.myspace-theme-demonslayer .profile-photo-box {
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  border: 2px solid #ffb7c5 !important;
+}
+
+.myspace-theme-demonslayer .contact-box {
+  border-color: #ffb7c5 !important;
+  background-color: transparent !important;
+}
+
+.myspace-theme-demonslayer .contact-box-header {
+  background-color: #00b159 !important;
+  color: #1a1a1a !important;
+}
+
+.myspace-theme-demonslayer .contact-action {
+  background-color: rgba(26, 26, 26, 0.9) !important;
+  color: #ffb7c5 !important;
+  border-color: #00b159 !important;
+}
+
+.myspace-theme-demonslayer .contact-action:hover {
+  background-color: #ffb7c5 !important;
+  color: #1a1a1a !important;
+}
+
+.myspace-theme-demonslayer .friend-avatar-wrapper {
+  background-color: rgba(26, 26, 26, 0.9) !important;
+  border-color: #00b159 !important;
+}
+
+.myspace-theme-demonslayer .friend-name {
+  color: #ffb7c5 !important;
+  font-weight: bold !important;
+}
+
+.myspace-theme-demonslayer .profile-edit-card {
+  border: 2px solid #00b159 !important;
+  background-color: rgba(26, 26, 26, 0.95) !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-demonslayer input[type="text"],
+.myspace-theme-demonslayer textarea,
+.myspace-theme-demonslayer select {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #ffb7c5 !important;
+}
+.myspace-theme-demonslayer input[type="text"]::placeholder,
+.myspace-theme-demonslayer textarea::placeholder {
+  color: #888888 !important;
+  opacity: 0.6;
+}
+
+.myspace-theme-demonslayer .myspace-profile-body button {
+  background-color: #00b159 !important;
+  color: #1a1a1a !important;
+  border: 1px solid #1a1a1a !important;
+}
+.myspace-theme-demonslayer .myspace-profile-body button:hover {
+  background-color: #ffb7c5 !important;
+  color: #1a1a1a !important;
+}
+
+.myspace-theme-demonslayer .favorited-bar-item {
+  border-color: #00b159 !important;
+  background-color: rgba(26, 26, 26, 0.9) !important;
+  color: #ffb7c5 !important;
+}
+.myspace-theme-demonslayer .favorited-bar-item span:last-child {
+  color: #00b159 !important;
+}
+
+.myspace-theme-demonslayer .emoji-presets-grid {
+  border: 1px solid #00b159 !important;
+  background-color: rgba(26, 26, 26, 0.9) !important;
+}
+.myspace-theme-demonslayer .selected-emoji-btn {
+  background-color: rgba(26, 26, 26, 0.9) !important;
+  border: 1px inset #00b159 !important;
+}
+.myspace-theme-demonslayer .profile-help-btn {
+  background-color: rgba(26, 26, 26, 0.9) !important;
+  color: #ffb7c5 !important;
+  border: 1px solid #00b159 !important;
+}
+.myspace-theme-demonslayer .profile-top-section {
+  border-bottom: 2px solid #00b159 !important;
+}
+
+/* ==========================================
+   Jujutsu Kaisen Theme
+   ========================================== */
+.myspace-theme-jujutsukaisen {
+  --player-border: #00f0ff;
+  --player-inner-bg: #0f172a;
+  --player-screen-bg: rgba(5, 5, 10, 0.95);
+  --player-screen-text: #00f0ff;
+  --player-screen-subtext: #a855f7;
+  --player-accent: #00f0ff;
+  --player-btn-active: #00f0ff;
+  --player-btn-inactive: #334155;
+  --player-progress-fill: linear-gradient(90deg, #00f0ff 0%, #a855f7 100%);
+  --player-visualizer-bar: #00f0ff;
+}
+
+.myspace-theme-jujutsukaisen .window {
+  border: 3px solid #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .title-bar,
+.myspace-theme-jujutsukaisen .window-title {
+  background: linear-gradient(90deg, #05050a 0%, #2e1065 100%) !important;
+}
+.myspace-theme-jujutsukaisen .title-bar-text {
+  color: #00f0ff !important;
+  text-shadow: 0 0 5px #00f0ff !important;
+}
+.myspace-theme-jujutsukaisen .title-bar button {
+  background-color: #0f172a !important;
+  border: 1px solid #00f0ff !important;
+  min-height: 14px !important;
+  min-width: 16px !important;
+  padding: 0 !important;
+}
+.myspace-theme-jujutsukaisen .title-bar button::after {
+  content: "x";
+  color: #00f0ff;
+  font-family: monospace;
+  font-size: 10px;
+  display: block;
+}
+
+.myspace-theme-jujutsukaisen .myspace-profile-body {
+  background: linear-gradient(135deg, #05050a, #0f172a, #2e1065) !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-jujutsukaisen .section-header-orange {
+  background-color: rgba(0, 240, 255, 0.15) !important;
+  color: #00f0ff !important;
+  border-left-color: #a855f7 !important;
+  border: 1px solid #00f0ff;
+}
+
+.myspace-theme-jujutsukaisen .profile-name-header {
+  color: #00f0ff !important;
+  text-shadow: 0 0 6px #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .profile-headline {
+  color: #a855f7 !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 4px #a855f7 !important;
+}
+
+.myspace-theme-jujutsukaisen .profile-details-table,
+.myspace-theme-jujutsukaisen .profile-bio-box,
+.myspace-theme-jujutsukaisen .top8-container {
+  background-color: rgba(5, 5, 10, 0.85) !important;
+  color: #ffffff !important;
+  border: 2px solid #00f0ff !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3) !important;
+}
+
+.myspace-theme-jujutsukaisen .profile-photo-box {
+  background-color: rgba(5, 5, 10, 0.85) !important;
+  border: 2px solid #a855f7 !important;
+}
+
+.myspace-theme-jujutsukaisen .contact-box {
+  border-color: #00f0ff !important;
+  background-color: transparent !important;
+}
+
+.myspace-theme-jujutsukaisen .contact-box-header {
+  background-color: #2e1065 !important;
+  color: #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .contact-action {
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  color: #a855f7 !important;
+  border-color: #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .contact-action:hover {
+  background-color: #00f0ff !important;
+  color: #05050a !important;
+}
+
+.myspace-theme-jujutsukaisen .friend-avatar-wrapper {
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  border-color: #a855f7 !important;
+}
+
+.myspace-theme-jujutsukaisen .friend-name {
+  color: #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .profile-edit-card {
+  border: 2px solid #00f0ff !important;
+  background-color: rgba(5, 5, 10, 0.85) !important;
+  color: #ffffff !important;
+}
+
+.myspace-theme-jujutsukaisen input[type="text"],
+.myspace-theme-jujutsukaisen textarea,
+.myspace-theme-jujutsukaisen select {
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid #a855f7 !important;
+}
+.myspace-theme-jujutsukaisen input[type="text"]::placeholder,
+.myspace-theme-jujutsukaisen textarea::placeholder {
+  color: #666666 !important;
+  opacity: 0.6;
+}
+
+.myspace-theme-jujutsukaisen .myspace-profile-body button {
+  background-color: #0f172a !important;
+  color: #00f0ff !important;
+  border: 1px solid #00f0ff !important;
+}
+.myspace-theme-jujutsukaisen .myspace-profile-body button:hover {
+  background-color: #00f0ff !important;
+  color: #05050a !important;
+}
+
+.myspace-theme-jujutsukaisen .favorited-bar-item {
+  border-color: #00f0ff !important;
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  color: #a855f7 !important;
+}
+.myspace-theme-jujutsukaisen .favorited-bar-item span:last-child {
+  color: #00f0ff !important;
+}
+
+.myspace-theme-jujutsukaisen .emoji-presets-grid {
+  border: 1px solid #00f0ff !important;
+  background-color: rgba(5, 5, 10, 0.9) !important;
+}
+.myspace-theme-jujutsukaisen .selected-emoji-btn {
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  border: 1px inset #00f0ff !important;
+}
+.myspace-theme-jujutsukaisen .profile-help-btn {
+  background-color: rgba(5, 5, 10, 0.9) !important;
+  color: #00f0ff !important;
+  border: 1px solid #a855f7 !important;
+}
+.myspace-theme-jujutsukaisen .profile-top-section {
+  border-bottom: 2px solid #00f0ff !important;
+}
+
 /* 4. Classic Theme Overrides */
 .myspace-theme-classic input[type="text"],
 .myspace-theme-classic textarea,
