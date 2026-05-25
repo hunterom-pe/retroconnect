@@ -276,21 +276,21 @@ export default function MySpaceMusicPlayer({ spotifyTrackUri = "spotify:track:4P
             {/* Custom Vintage Play/Pause Vector Buttons */}
             <button 
               onClick={handlePlay} 
-              className={`player-btn play-btn ${isPlaying ? "active" : ""}`} 
+              className="player-btn play-btn" 
               style={{ flex: 1 }} 
               title="Play"
             >
-              <svg width="10" height="10" viewBox="0 0 10 10" style={{ fill: isPlaying ? "#39ff14" : "#ff66cc" }}>
+              <svg width="12" height="12" viewBox="0 0 10 10" style={{ fill: isPlaying ? "#39ff14" : "#ff66cc", pointerEvents: "none" }}>
                 <path d="M2,1 L8,5 L2,9 Z" />
               </svg>
             </button>
             <button 
               onClick={handlePause} 
-              className={`player-btn pause-btn ${!isPlaying ? "active" : ""}`} 
+              className="player-btn pause-btn" 
               style={{ flex: 1 }} 
               title="Pause"
             >
-              <svg width="10" height="10" viewBox="0 0 10 10" style={{ fill: !isPlaying ? "#39ff14" : "#ff66cc" }}>
+              <svg width="12" height="12" viewBox="0 0 10 10" style={{ fill: !isPlaying ? "#39ff14" : "#ff66cc", pointerEvents: "none" }}>
                 <path d="M2,1 H4 V9 H2 Z M6,1 H8 V9 H6 Z" />
               </svg>
             </button>
