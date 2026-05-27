@@ -77,6 +77,9 @@ export default function App() {
   const [activeChatConnection, setActiveChatConnection] = useState(null);
   const [navigationScreen, setNavigationScreen] = useState("home");
   const [selectedCity, setSelectedCity] = useState("");
+  const [hideWelcome, setHideWelcome] = useState(() => {
+    return localStorage.getItem("asl_hide_welcome") === "true";
+  });
 
   // Active Data States
   const [showProofDialog, setShowProofDialog] = useState(null); // stores the post object being claimed
@@ -1375,43 +1378,113 @@ export default function App() {
         {/* HOMEPAGE SCREEN */}
         {navigationScreen === "home" && (
           <div style={{ maxWidth: "450px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "16px", width: "100%" }}>
-            <div className="myspace-welcome-box">
-              <div className="myspace-welcome-title">Welcome to asl!</div>
-              <div className="myspace-welcome-text" style={{ marginBottom: "15px", lineHeight: "1.4" }}>
-                asl is for missed connections:<br />
-                like that friend you made in the bathroom line, or that 10/10 you met sharing a lighter outside the venue. This isn't just another generic dating app, it's a digital bulletin board to reconnect with the people who crossed your path last night.
-              </div>
-              <button 
-                className="default" 
-                onClick={() => setNavigationScreen("city")}
-                style={{ width: "100%", minHeight: "52px", fontSize: "17px", fontWeight: "bold" }}
+            {!hideWelcome && (
+              <div 
+                className="window" 
+                style={{ 
+                  borderRadius: 0, 
+                  boxShadow: "none", 
+                  border: "2px outset #ffffff", 
+                  backgroundColor: "#c0c0c0", 
+                  padding: "2px" 
+                }}
               >
-                🌵 Enter Regional Portal
-              </button>
-            </div>
+                <div 
+                  className="title-bar" 
+                  style={{ 
+                    borderRadius: 0, 
+                    backgroundColor: "#000080", 
+                    padding: "3px 5px", 
+                    display: "flex", 
+                    justifyContent: "space-between", 
+                    alignItems: "center", 
+                    color: "#fff", 
+                    fontWeight: "bold", 
+                    fontSize: "12px", 
+                    fontFamily: "MS Sans Serif, sans-serif" 
+                  }}
+                >
+                  <span className="title-bar-text">Welcome.exe</span>
+                  <div className="title-bar-controls">
+                    <button 
+                      aria-label="Close" 
+                      onClick={() => {
+                        localStorage.setItem("asl_hide_welcome", "true");
+                        setHideWelcome(true);
+                      }}
+                      style={{ 
+                        borderRadius: 0, 
+                        width: "16px", 
+                        height: "16px", 
+                        minWidth: "16px", 
+                        minHeight: "16px", 
+                        padding: 0, 
+                        display: "flex", 
+                        justifyContent: "center", 
+                        alignItems: "center", 
+                        fontSize: "9px", 
+                        fontWeight: "bold", 
+                        backgroundColor: "#c0c0c0", 
+                        color: "#000", 
+                        border: "1px solid #fff", 
+                        boxShadow: "inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf", 
+                        cursor: "pointer" 
+                      }}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                <div className="window-body" style={{ margin: "10px", textAlign: "left" }}>
+                  <div className="myspace-welcome-text" style={{ marginBottom: "15px", lineHeight: "1.4" }}>
+                    asl is for missed connections:<br />
+                    like that friend you made in the bathroom line, or that 10/10 you met sharing a lighter outside the venue. This isn't just another generic dating app, it's a digital bulletin board to reconnect with the people who crossed your path last night.
+                  </div>
+                  <button 
+                    onClick={() => setNavigationScreen("city")}
+                    style={{ 
+                      width: "100%", 
+                      minHeight: "52px", 
+                      fontSize: "17px", 
+                      fontWeight: "bold",
+                      borderRadius: 0,
+                      border: "2px outset",
+                      boxShadow: "inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, 1px 1px 0 0 #000",
+                      backgroundColor: "#c0c0c0",
+                      cursor: "pointer"
+                    }}
+                  >
+                    🌵 Enter Regional Portal
+                  </button>
+                </div>
+              </div>
+            )}
 
             {isLoggedIn ? (
               /* LOGGED-IN HOME EXPERIENCE */
               <>
                 {/* 1. MySpace-style User Dashboard Widget */}
-                <div className="window" style={{ width: "100%", boxSizing: "border-box" }}>
-                  <div className="window-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div className="window" style={{ width: "100%", boxSizing: "border-box", borderRadius: 0 }}>
+                  <div className="window-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderRadius: 0 }}>
                     <span>👤 My Dashboard</span>
                     <span>asl // v2.0</span>
                   </div>
-                  <div className="window-body" style={{ display: "flex", gap: "12px", padding: "10px", alignItems: "center", backgroundColor: "#ffffff", margin: 0 }}>
+                  <div className="window-body" style={{ display: "flex", gap: "12px", padding: "10px", alignItems: "center", backgroundColor: "#ffffff", margin: 0, borderRadius: 0 }}>
                     <div 
                       onClick={handleOpenMyProfile}
                       style={{ 
                         fontSize: "24px", 
                         cursor: "pointer", 
                         padding: "6px", 
-                        border: "2px outset #ff007f", 
+                        border: "2px inset", 
+                        backgroundImage: "radial-gradient(#ff007f 15%, transparent 15%), radial-gradient(#ff007f 15%, transparent 15%)",
+                        backgroundSize: "6px 6px",
+                        backgroundPosition: "0 0, 3px 3px",
                         backgroundColor: "#fff0f5",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        borderRadius: "8px",
+                        borderRadius: 0,
                         width: "90px",
                         height: "50px",
                         flexShrink: 0,
@@ -1421,39 +1494,44 @@ export default function App() {
                     >
                       {userDoc?.emoji_avatar || "👥"}
                     </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "4px" }}>
-                        <h2 style={{ margin: 0, fontSize: "15px", color: "#003399", fontWeight: "bold", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                          Yo, {userDoc?.username || currentUser.email?.split("@")[0] || "User"}!
-                        </h2>
-                        <span style={{ fontSize: "10px", backgroundColor: "#ffccd8", color: "#b30059", padding: "1px 5px", borderRadius: "10px", fontWeight: "bold" }}>
-                          {userDoc?.mood || "Chillin' 😎"}
+                    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px" }}>
+                      <h2 style={{ margin: 0, fontSize: "15px", color: "#003399", fontWeight: "bold", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "left" }}>
+                        Yo, {userDoc?.username || currentUser.email?.split("@")[0] || "User"}!
+                      </h2>
+                      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        <span style={{ fontSize: "10px", color: "#555" }}>Mood:</span>
+                        <span 
+                          style={{ 
+                            fontSize: "10px", 
+                            backgroundColor: "#ffffff", 
+                            color: "#000000", 
+                            padding: "2px 6px 2px 4px", 
+                            border: "1px inset", 
+                            boxShadow: "inset -1px -1px #fff, inset 1px 1px #808080",
+                            fontWeight: "bold",
+                            borderRadius: 0,
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "4px"
+                          }}
+                        >
+                          <span>{userDoc?.mood || "Chillin' 😎"}</span>
+                          <span style={{ fontSize: "7px", color: "#808080" }}>▼</span>
                         </span>
                       </div>
-                      <p style={{ margin: "3px 0 6px 0", fontSize: "11px", color: "#666", fontStyle: "italic", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      <p style={{ margin: "2px 0 6px 0", fontSize: "11px", color: "#666", fontStyle: "italic", textAlign: "left", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", width: "100%" }}>
                         "{userDoc?.headline || "everyone's favorite dial-up partner"}"
                       </p>
-                      <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
+                      <div style={{ display: "flex", gap: "6px", width: "100%", marginTop: "4px" }}>
                         <button 
                           onClick={handleOpenMyProfile} 
-                          style={{ padding: "2px 6px", fontSize: "10px", minHeight: "24px", cursor: "pointer" }}
+                          style={{ flex: 1, padding: "2px 6px", fontSize: "11px", minHeight: "24px", cursor: "pointer", borderRadius: 0 }}
                         >
                           ✏️ Profile
                         </button>
                         <button 
-                          onClick={() => setNavigationScreen("mail")} 
-                          style={{ padding: "2px 6px", fontSize: "10px", minHeight: "24px", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "3px" }}
-                        >
-                          📬 Inbox
-                          {inboundClaimsCount > 0 && (
-                            <span style={{ backgroundColor: "#ff007f", color: "#fff", padding: "0 4px", borderRadius: "10px", fontSize: "9px", fontWeight: "bold" }}>
-                              {inboundClaimsCount}
-                            </span>
-                          )}
-                        </button>
-                        <button 
                           onClick={() => setNavigationScreen("city")} 
-                          style={{ padding: "2px 6px", fontSize: "10px", minHeight: "24px", cursor: "pointer" }}
+                          style={{ flex: 1, padding: "2px 6px", fontSize: "11px", minHeight: "24px", cursor: "pointer", borderRadius: 0 }}
                         >
                           🌵 Find Bars
                         </button>
