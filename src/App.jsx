@@ -1469,7 +1469,7 @@ export default function App() {
         {/* HOMEPAGE SCREEN */}
         {navigationScreen === "home" && (
           <div style={{ maxWidth: "450px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "16px", width: "100%" }}>
-            {!hideWelcome && (
+            {(!hideWelcome || !currentUser || currentUser.isAnonymous) && (
               <div 
                 className="window" 
                 style={{ 
@@ -1497,14 +1497,16 @@ export default function App() {
                 >
                   <span className="title-bar-text">Welcome.exe</span>
                   <div className="title-bar-controls">
-                    <button 
-                      aria-label="Close" 
-                      onClick={() => {
-                        localStorage.setItem("asl_hide_welcome", "true");
-                        setHideWelcome(true);
-                      }}
-                      style={{ borderRadius: 0, cursor: "pointer" }}
-                    />
+                    {currentUser && !currentUser.isAnonymous && (
+                      <button 
+                        aria-label="Close" 
+                        onClick={() => {
+                          localStorage.setItem("asl_hide_welcome", "true");
+                          setHideWelcome(true);
+                        }}
+                        style={{ borderRadius: 0, cursor: "pointer" }}
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="window-body" style={{ margin: "10px", textAlign: "left" }}>
