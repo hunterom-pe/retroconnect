@@ -233,9 +233,6 @@ export default function App() {
           return;
         }
 
-        // Initialize Anonymous Onboarding
-        await firebaseSignInAnonymously();
-
         // Check for App Store Reviewer Mode (Cupertino coordinates or developer override)
         const isOverride = localStorage.getItem("asl_dev_override") === "true";
         let isCupertino = false;
@@ -280,6 +277,12 @@ export default function App() {
   // 2. Auth Listener and Firestore User Record binding
   useEffect(() => {
     const unsubAuth = firebaseOnAuthStateChanged((user) => {
+      if (!user) {
+        // Only sign in anonymously if there is no persistent session found
+        firebaseSignInAnonymously().catch(e => console.error("Anon sign in failed", e));
+        return;
+      }
+
       setCurrentUser(user);
       if (user) {
         // Sync user device registration in background
