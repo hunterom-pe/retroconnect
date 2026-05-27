@@ -1412,27 +1412,8 @@ export default function App() {
                         localStorage.setItem("asl_hide_welcome", "true");
                         setHideWelcome(true);
                       }}
-                      style={{ 
-                        borderRadius: 0, 
-                        width: "16px", 
-                        height: "16px", 
-                        minWidth: "16px", 
-                        minHeight: "16px", 
-                        padding: 0, 
-                        display: "flex", 
-                        justifyContent: "center", 
-                        alignItems: "center", 
-                        fontSize: "9px", 
-                        fontWeight: "bold", 
-                        backgroundColor: "#c0c0c0", 
-                        color: "#000", 
-                        border: "1px solid #fff", 
-                        boxShadow: "inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf", 
-                        cursor: "pointer" 
-                      }}
-                    >
-                      X
-                    </button>
+                      style={{ borderRadius: 0, cursor: "pointer" }}
+                    />
                   </div>
                 </div>
                 <div className="window-body" style={{ margin: "10px", textAlign: "left" }}>
