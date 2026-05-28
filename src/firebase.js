@@ -234,6 +234,156 @@ class SimulatedStore {
             emoji_avatar: "🌌🌠🚀",
             favorited_bars: ["venue_riot", "venue_bottled"],
             createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_cactus": {
+            uid: "user_cactus",
+            username: "CactusJack",
+            mood: "Chillin' 😎",
+            bio: "Desert nights and neon lights.",
+            profileTheme: "sunset",
+            emoji_avatar: "🌵🔥🌙",
+            favorited_bars: ["venue_cobra", "venue_valley", "venue_coach"],
+            createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000
+          },
+          "user_luna": {
+            uid: "user_luna",
+            username: "LunaMoth",
+            mood: "Mellow 🎧",
+            bio: "Listening to lo-fi on the patio at 2am.",
+            profileTheme: "classic",
+            emoji_avatar: "🦋🌙🎧",
+            favorited_bars: ["venue_linger", "venue_gracies", "venue_caseys"],
+            createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000
+          },
+          "user_salsa": {
+            uid: "user_salsa",
+            username: "SalsaVerde",
+            mood: "Excited ⚡",
+            bio: "If the music is playing, I'm dancing.",
+            profileTheme: "sunset",
+            emoji_avatar: "💃🌶️🎶",
+            favorited_bars: ["venue_sunbar", "venue_bottled", "venue_riot"],
+            createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000
+          },
+          "user_mesa": {
+            uid: "user_mesa",
+            username: "MesaMike",
+            mood: "Nostalgic 📼",
+            bio: "Born and raised in the East Valley. Still here.",
+            profileTheme: "classic",
+            emoji_avatar: "🏜️📼🍺",
+            favorited_bars: ["venue_yucca", "venue_caseys"],
+            createdAt: Date.now() - 6 * 24 * 60 * 60 * 1000
+          },
+          "user_copper": {
+            uid: "user_copper",
+            username: "CopperState",
+            mood: "Creative 🎨",
+            bio: "Tattoo artist by day, dive bar philosopher by night.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🎨🖋️🍻",
+            favorited_bars: ["venue_gracies", "venue_yucca", "venue_cobra"],
+            createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000
+          },
+          "user_phoenix": {
+            uid: "user_phoenix",
+            username: "PhxRising",
+            mood: "Rebellious ✊",
+            bio: "This city raised me. I raise it back.",
+            profileTheme: "sunset",
+            emoji_avatar: "🔥🏙️✊",
+            favorited_bars: ["venue_valley", "venue_cobra", "venue_gracies"],
+            createdAt: Date.now() - 7 * 24 * 60 * 60 * 1000
+          },
+          "user_dreamer": {
+            uid: "user_dreamer",
+            username: "DayDreamer",
+            mood: "Spacey 🚀",
+            bio: "Head in the clouds, feet on Mill Ave.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "☁️🚀💫",
+            favorited_bars: ["venue_sunbar", "venue_caseys", "venue_linger"],
+            createdAt: Date.now() - 2 * 24 * 60 * 60 * 1000
+          },
+          "user_habanero": {
+            uid: "user_habanero",
+            username: "Habanero",
+            mood: "Sassy 💅",
+            bio: "Hot takes and hotter salsa.",
+            profileTheme: "sunset",
+            emoji_avatar: "🌶️💅✨",
+            favorited_bars: ["venue_bottled", "venue_riot", "venue_coach"],
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_monsoon": {
+            uid: "user_monsoon",
+            username: "MonsoonSzn",
+            mood: "Melancholy 🌧️",
+            bio: "I love this city most when it rains.",
+            profileTheme: "classic",
+            emoji_avatar: "🌧️⛈️🌈",
+            favorited_bars: ["venue_linger", "venue_valley"],
+            createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000
+          },
+          "user_roadrunner": {
+            uid: "user_roadrunner",
+            username: "RoadRunner",
+            mood: "Hyper 🤪",
+            bio: "Beep beep. Can't catch me.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🏃💨🤪",
+            favorited_bars: ["venue_cobra", "venue_sunbar", "venue_yucca"],
+            createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000
+          },
+          "user_saguaro": {
+            uid: "user_saguaro",
+            username: "SaguaroSoul",
+            mood: "Reflective 📖",
+            bio: "Journaling at the bar. Don't judge.",
+            profileTheme: "classic",
+            emoji_avatar: "🌵📖🌅",
+            favorited_bars: ["venue_gracies", "venue_linger", "venue_caseys"],
+            createdAt: Date.now() - 6 * 24 * 60 * 60 * 1000
+          },
+          "user_scorpion": {
+            uid: "user_scorpion",
+            username: "ScorpionQ",
+            mood: "Goth Emo 🖤",
+            bio: "Nocturnal by choice. Scorpio by birth.",
+            profileTheme: "cyberpunk",
+            emoji_avatar: "🦂🖤🌑",
+            favorited_bars: ["venue_yucca", "venue_valley", "venue_cobra"],
+            createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000
+          },
+          "user_turquoise": {
+            uid: "user_turquoise",
+            username: "TurquoiseRing",
+            mood: "Crushing 😍",
+            bio: "Collecting turquoise and bad decisions.",
+            profileTheme: "sunset",
+            emoji_avatar: "💎💙🌻",
+            favorited_bars: ["venue_coach", "venue_bottled", "venue_gracies"],
+            createdAt: Date.now() - 2 * 24 * 60 * 60 * 1000
+          },
+          "user_prickly": {
+            uid: "user_prickly",
+            username: "PricklyPear",
+            mood: "Ready to Party 🍹",
+            bio: "Margarita in hand, always.",
+            profileTheme: "classic",
+            emoji_avatar: "🍹🌺🎉",
+            favorited_bars: ["venue_riot", "venue_sunbar", "venue_bottled"],
+            createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000
+          },
+          "user_sidewinder": {
+            uid: "user_sidewinder",
+            username: "Sidewinder",
+            mood: "Tired 😴",
+            bio: "Night shift nurse. Bar is my morning coffee.",
+            profileTheme: "classic",
+            emoji_avatar: "🐍😴🌙",
+            favorited_bars: ["venue_caseys", "venue_gracies", "venue_linger"],
+            createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000
           }
         },
         posts: [
@@ -249,7 +399,10 @@ class SimulatedStore {
             date: "May 20, 2026",
             timeRange: "10:00 PM - 11:30 PM",
             timestamp: Date.now() - 172800000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_cactus",
+            connectedWithUsername: "CactusJack",
+            connectedProofText: "I WAS wearing that Polaroid shirt! You beat my high score by like 200 points and I was so salty. I remember your green jacket. Rematch anytime."
           },
           {
             id: "post2",
@@ -277,7 +430,10 @@ class SimulatedStore {
             date: "May 22, 2026",
             timeRange: "11:30 PM - 1:00 AM",
             timestamp: Date.now() - 3600000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_scorpion",
+            connectedWithUsername: "ScorpionQ",
+            connectedProofText: "Joy Division is my religion. I played it twice because nobody complained the first time. Black leather jacket is my uniform. I remember you near the booth."
           },
           {
             id: "post4",
@@ -319,7 +475,10 @@ class SimulatedStore {
             date: "May 21, 2026",
             timeRange: "11:00 PM - 1:00 AM",
             timestamp: Date.now() - 108000000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_salsa",
+            connectedWithUsername: "SalsaVerde",
+            connectedProofText: "Okay YES that was my birthday and I was LOUD. White cowboy boots are my signature. You were the shy one in the corner right? I smiled because you looked sweet."
           },
           {
             id: "post7",
@@ -347,7 +506,10 @@ class SimulatedStore {
             date: "May 23, 2026",
             timeRange: "8:30 PM - 10:00 PM",
             timestamp: Date.now() - 1800000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_roadrunner",
+            connectedWithUsername: "RoadRunner",
+            connectedProofText: "Bro I didn't walk away to be cool \u2014 my friend was leaving and I had to catch my ride! Grey hoodie gang. Rematch? I'll let you pick the character this time."
           },
           {
             id: "post9",
@@ -361,7 +523,10 @@ class SimulatedStore {
             date: "May 22, 2026",
             timeRange: "7:00 PM - 9:00 PM",
             timestamp: Date.now() - 43200000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_turquoise",
+            connectedWithUsername: "TurquoiseRing",
+            connectedProofText: "I can't believe someone noticed my oyster rant! Yellow sundress is my go-to. The couple ended up ordering everything I suggested. I saw you smiling \u2014 I was too nervous to say hi."
           },
           {
             id: "post10",
@@ -375,7 +540,10 @@ class SimulatedStore {
             date: "May 22, 2026",
             timeRange: "9:00 PM - 11:30 PM",
             timestamp: Date.now() - 21600000,
-            status: "active"
+            status: "connected",
+            connectedWithId: "user_phoenix",
+            connectedWithUsername: "PhxRising",
+            connectedProofText: "THE ZINE!! I hand-printed 50 copies and you got one of the last ones. Shaved head, overalls, patch tote \u2014 that's me. The wink was intentional. You had good energy."
           },
           {
             id: "post11",
@@ -404,10 +572,370 @@ class SimulatedStore {
             timeRange: "6:00 PM - 8:00 PM",
             timestamp: Date.now() - 3000000,
             status: "active"
+          },
+          {
+            id: "post13",
+            venueId: "venue_cobra",
+            venueName: "Cobra Arcade Bar",
+            venueAddress: "801 N 2nd St, Phoenix, AZ 85004",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "You were feeding quarters into Ms. Pac-Man like your life depended on it. Tank top, arm tattoos, huge smile every time you died. I was the one clapping from behind you. Should've said something.",
+            userId: "user_cactus",
+            date: "May 24, 2026",
+            timeRange: "9:00 PM - 11:00 PM",
+            timestamp: Date.now() - 900000,
+            status: "active"
+          },
+          {
+            id: "post14",
+            venueId: "venue_linger",
+            venueName: "Linger Longer Lounge",
+            venueAddress: "6522 N 16th St, Phoenix, AZ 85016",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "You were the only person on the patio reading a book while everyone else was screaming at the game on TV. Glasses, messy bun, iced tea. I wanted to ask what you were reading but I'm a coward.",
+            userId: "user_luna",
+            date: "May 24, 2026",
+            timeRange: "7:00 PM - 9:00 PM",
+            timestamp: Date.now() - 1200000,
+            status: "active"
+          },
+          {
+            id: "post15",
+            venueId: "venue_sunbar",
+            venueName: "Sunbar Tempe",
+            venueAddress: "24 W 5th St, Tempe, AZ 85281",
+            venueCity: "Phoenix",
+            venueZone: "Tempe",
+            text: "You grabbed my hand during the DJ drop and we danced for three songs straight. Red lipstick, gold hoop earrings. You disappeared when your friends dragged you to the next bar. Come back.",
+            userId: "user_salsa",
+            date: "May 23, 2026",
+            timeRange: "11:00 PM - 1:00 AM",
+            timestamp: Date.now() - 4500000,
+            status: "active"
+          },
+          {
+            id: "post16",
+            venueId: "venue_yucca",
+            venueName: "Yucca Tap Room",
+            venueAddress: "29 W Southern Ave, Tempe, AZ 85282",
+            venueCity: "Phoenix",
+            venueZone: "Tempe",
+            text: "You were at the pinball machine wearing a faded Descendents shirt. We argued about whether Black Flag or Minor Threat was better. You won. I want a rematch over beers.",
+            userId: "user_mesa",
+            date: "May 22, 2026",
+            timeRange: "10:00 PM - midnight",
+            timestamp: Date.now() - 36000000,
+            status: "active"
+          },
+          {
+            id: "post17",
+            venueId: "venue_gracies",
+            venueName: "Gracies Tax Bar",
+            venueAddress: "711 N 7th Ave, Phoenix, AZ 85007",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "You were sketching on a napkin at the end of the bar. I peeked and it was a portrait of the bartender. Absolutely incredible. Denim vest, rings on every finger. I wanted to tell you it was beautiful.",
+            userId: "user_copper",
+            date: "May 24, 2026",
+            timeRange: "8:00 PM - 10:00 PM",
+            timestamp: Date.now() - 600000,
+            status: "active"
+          },
+          {
+            id: "post18",
+            venueId: "venue_valley",
+            venueName: "Valley Bar",
+            venueAddress: "130 N Central Ave, Phoenix, AZ 85004",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "Basement show. You were moshing but in a respectful way — kept picking people up when they fell. Shaved sides, band tee, doc martens. You high-fived me after the encore. I should've asked for more than a high five.",
+            userId: "user_phoenix",
+            date: "May 23, 2026",
+            timeRange: "10:00 PM - 12:30 AM",
+            timestamp: Date.now() - 5000000,
+            status: "active"
+          },
+          {
+            id: "post19",
+            venueId: "venue_caseys",
+            venueName: "Casey Moore's Oyster House",
+            venueAddress: "850 S Ash Ave, Tempe, AZ 85281",
+            venueCity: "Phoenix",
+            venueZone: "Tempe",
+            text: "You told the ghost story about the house to a group of freshmen and they were TERRIFIED. Backwards cap, flannel tied around your waist. You caught me laughing and said 'believe it or not.' I believe you.",
+            userId: "user_dreamer",
+            date: "May 24, 2026",
+            timeRange: "9:30 PM - 11:00 PM",
+            timestamp: Date.now() - 1500000,
+            status: "active"
+          },
+          {
+            id: "post20",
+            venueId: "venue_bottled",
+            venueName: "Bottled Blonde",
+            venueAddress: "7340 E Indian Plaza, Scottsdale, AZ 85251",
+            venueCity: "Phoenix",
+            venueZone: "Old Town",
+            text: "You ordered a pizza and ate the entire thing alone at the bar with zero shame. White crop top, sunglasses on your head even though it was midnight. Iconic behavior. I need to know you.",
+            userId: "user_habanero",
+            date: "May 23, 2026",
+            timeRange: "11:30 PM - 1:00 AM",
+            timestamp: Date.now() - 7200000,
+            status: "active"
+          },
+          {
+            id: "post21",
+            venueId: "venue_valley",
+            venueName: "Valley Bar",
+            venueAddress: "130 N Central Ave, Phoenix, AZ 85004",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "It was raining and we both ran inside at the same time. You shook the water off your jacket onto me and apologized by buying me a shot. Curly hair, denim on denim. That shot tasted like destiny.",
+            userId: "user_monsoon",
+            date: "May 22, 2026",
+            timeRange: "9:00 PM - 11:00 PM",
+            timestamp: Date.now() - 50400000,
+            status: "active"
+          },
+          {
+            id: "post22",
+            venueId: "venue_cobra",
+            venueName: "Cobra Arcade Bar",
+            venueAddress: "801 N 2nd St, Phoenix, AZ 85004",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "You were speed-running Donkey Kong and a crowd formed. Bright green sneakers, energy drink in hand. When you beat the level you turned around and bowed. Absolutely unhinged. I'm in love.",
+            userId: "user_roadrunner",
+            date: "May 24, 2026",
+            timeRange: "8:00 PM - 10:30 PM",
+            timestamp: Date.now() - 800000,
+            status: "active"
+          },
+          {
+            id: "post23",
+            venueId: "venue_caseys",
+            venueName: "Casey Moore's Oyster House",
+            venueAddress: "850 S Ash Ave, Tempe, AZ 85281",
+            venueCity: "Phoenix",
+            venueZone: "Tempe",
+            text: "You were writing in a leather journal on the patio. It started raining and you didn't move — you just closed your eyes and smiled. White linen shirt, turquoise necklace. That moment was a painting.",
+            userId: "user_saguaro",
+            date: "May 21, 2026",
+            timeRange: "7:30 PM - 9:30 PM",
+            timestamp: Date.now() - 100000000,
+            status: "active"
+          },
+          {
+            id: "post24",
+            venueId: "venue_yucca",
+            venueName: "Yucca Tap Room",
+            venueAddress: "29 W Southern Ave, Tempe, AZ 85282",
+            venueCity: "Phoenix",
+            venueZone: "Tempe",
+            text: "3 AM at Yucca. You were the only other person there. We didn't talk — just sat at opposite ends of the bar in complete silence. It was the most comfortable silence I've ever had with a stranger. All black outfit, silver chain.",
+            userId: "user_scorpion",
+            date: "May 22, 2026",
+            timeRange: "2:30 AM - 4:00 AM",
+            timestamp: Date.now() - 72000000,
+            status: "active"
+          },
+          {
+            id: "post25",
+            venueId: "venue_coach",
+            venueName: "Coach House",
+            venueAddress: "7011 E Indian School Rd, Scottsdale, AZ 85251",
+            venueCity: "Phoenix",
+            venueZone: "Old Town",
+            text: "Under the Christmas lights at Coach House, you were telling the bartender about how you make your own jewelry. Turquoise ring, straw hat, cowboy boots. Every ring had a story. I wanted to hear them all.",
+            userId: "user_turquoise",
+            date: "May 24, 2026",
+            timeRange: "6:00 PM - 8:00 PM",
+            timestamp: Date.now() - 400000,
+            status: "active"
+          },
+          {
+            id: "post26",
+            venueId: "venue_riot",
+            venueName: "Riot House",
+            venueAddress: "4425 N Saddlebag Trail, Scottsdale, AZ 85251",
+            venueCity: "Phoenix",
+            venueZone: "Old Town",
+            text: "VIP section. You snuck me past the rope because you said I 'looked like I needed better music.' Floral dress, combat boots. We lost each other when the lights dropped. Find me.",
+            userId: "user_prickly",
+            date: "May 23, 2026",
+            timeRange: "10:30 PM - 1:00 AM",
+            timestamp: Date.now() - 3600000,
+            status: "active"
+          },
+          {
+            id: "post27",
+            venueId: "venue_gracies",
+            venueName: "Gracies Tax Bar",
+            venueAddress: "711 N 7th Ave, Phoenix, AZ 85007",
+            venueCity: "Phoenix",
+            venueZone: "Downtown",
+            text: "I just got off a twelve-hour shift and you could tell. You slid a beer down the bar to me without a word, just a nod. Scrubs under your jacket, tired eyes that still sparkled. Nurses stick together. What's your name?",
+            userId: "user_sidewinder",
+            date: "May 24, 2026",
+            timeRange: "2:00 AM - close",
+            timestamp: Date.now() - 200000,
+            status: "active"
           }
         ],
-        connections: {},
-        chats: {},
+        connections: {
+          "conn_mock_1": {
+            id: "conn_mock_1",
+            postId: "post1",
+            postText: "You were wearing a vintage Polaroid tee and playing the Galaga machine. We locked eyes when I beat your high score. Drinks on me next time?",
+            venueName: "Cobra Arcade Bar",
+            senderId: "user_cactus",
+            receiverId: "user_greenday",
+            proofText: "I WAS wearing that Polaroid shirt! You beat my high score by like 200 points and I was so salty. I remember your green jacket. Rematch anytime.",
+            status: "accepted"
+          },
+          "conn_mock_2": {
+            id: "conn_mock_2",
+            postId: "post3",
+            postText: "Near the jukebox in the basement. You had neon blue eyeliner and a black leather jacket. You played 'Love Will Tear Us Apart' twice. Who are you?",
+            venueName: "Valley Bar",
+            senderId: "user_scorpion",
+            receiverId: "user_coder",
+            proofText: "Joy Division is my religion. I played it twice because nobody complained the first time. Black leather jacket is my uniform. I remember you near the booth.",
+            status: "accepted"
+          },
+          "conn_mock_3": {
+            id: "conn_mock_3",
+            postId: "post6",
+            postText: "You were in the back booth with a group of friends, laughing so loud the whole bar noticed. You caught me staring and just smiled. Plaid skirt, white cowboy boots.",
+            venueName: "Yucca Tap Room",
+            senderId: "user_salsa",
+            receiverId: "user_metal",
+            proofText: "Okay YES that was my birthday and I was LOUD. White cowboy boots are my signature. You were the shy one in the corner right? I smiled because you looked sweet.",
+            status: "accepted"
+          },
+          "conn_mock_4": {
+            id: "conn_mock_4",
+            postId: "post8",
+            postText: "You beat me twice at Street Fighter and just walked away like it was nothing. Grey hoodie, headphones around your neck.",
+            venueName: "Cobra Arcade Bar",
+            senderId: "user_roadrunner",
+            receiverId: "user_gamer",
+            proofText: "Bro I didn't walk away to be cool — my friend was leaving and I had to catch my ride! Grey hoodie gang. Rematch? I'll let you pick the character this time.",
+            status: "accepted"
+          },
+          "conn_mock_5": {
+            id: "conn_mock_5",
+            postId: "post9",
+            postText: "You were the one recommending oyster pairings to the couple next to me like a sommelier. Curly hair, yellow sundress.",
+            venueName: "Casey Moore's Oyster House",
+            senderId: "user_turquoise",
+            receiverId: "user_coffee",
+            proofText: "I can't believe someone noticed my oyster rant! Yellow sundress is my go-to. The couple ended up ordering everything I suggested. I saw you smiling — I was too nervous to say hi.",
+            status: "accepted"
+          },
+          "conn_mock_6": {
+            id: "conn_mock_6",
+            postId: "post4",
+            postText: "You were at the bar alone, reading a paperback novel in the dim light. Red flannel shirt, round glasses.",
+            venueName: "Gracies Tax Bar",
+            senderId: "user_saguaro",
+            receiverId: "user_hiphop",
+            proofText: "That was me and the book was Kafka on the Shore. Red flannel is literally all I own. You bought me a drink?? I thought the bartender was being nice! Why didn't you say hi?!",
+            status: "pending"
+          },
+          "conn_mock_7": {
+            id: "conn_mock_7",
+            postId: "post11",
+            postText: "You were on the rooftop deck staring at the sky and not talking to anyone. I sat next to you and we just watched the moon together for like 20 minutes.",
+            venueName: "Riot House",
+            senderId: "user_prickly",
+            receiverId: "user_star",
+            proofText: "That was the most peaceful 20 minutes of my life. I wanted to say something but the silence was so perfect I didn't want to ruin it. I was wearing the floral dress and boots.",
+            status: "pending"
+          },
+          "conn_mock_8": {
+            id: "conn_mock_8",
+            postId: "post5",
+            postText: "You spilled your drink on my laptop bag and apologized like five times — it was adorable.",
+            venueName: "Linger Longer Lounge",
+            senderId: "user_luna",
+            receiverId: "user_retro",
+            proofText: "Oh my GOD I am still mortified about that. I spilled an entire IPA on your bag and you were SO nice about it. Vintage NASA jacket is correct — it was my dad's. Please let me buy you a replacement drink.",
+            status: "pending"
+          },
+          "conn_mock_9": {
+            id: "conn_mock_9",
+            postId: "post7",
+            postText: "You were DJing the early set and you played 808s & Heartbreak back to back.",
+            venueName: "Sunbar Tempe",
+            senderId: "user_dreamer",
+            receiverId: "user_rave",
+            proofText: "808s is the greatest album ever made and I will die on that hill. Blue streak in my hair is faded now but I still have it. I went backstage after — you should've come found me!",
+            status: "pending"
+          },
+          "conn_mock_10": {
+            id: "conn_mock_10",
+            postId: "post10",
+            postText: "You were selling handmade zines at the merch table for a band I've never heard of.",
+            venueName: "Valley Bar",
+            senderId: "user_phoenix",
+            receiverId: "user_punk",
+            proofText: "THE ZINE!! I hand-printed 50 copies and you got one of the last ones. Shaved head, overalls, patch tote — that's me. The wink was intentional. You had good energy.",
+            status: "accepted"
+          }
+        },
+        chats: {
+          "chat_mock_1": {
+            id: "chat_mock_1",
+            connectionId: "conn_mock_1",
+            participants: ["user_cactus", "user_greenday"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 800000,
+            venueName: "Cobra Arcade Bar"
+          },
+          "chat_mock_2": {
+            id: "chat_mock_2",
+            connectionId: "conn_mock_2",
+            participants: ["user_scorpion", "user_coder"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 700000,
+            venueName: "Valley Bar"
+          },
+          "chat_mock_3": {
+            id: "chat_mock_3",
+            connectionId: "conn_mock_3",
+            participants: ["user_salsa", "user_metal"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 600000,
+            venueName: "Yucca Tap Room"
+          },
+          "chat_mock_4": {
+            id: "chat_mock_4",
+            connectionId: "conn_mock_4",
+            participants: ["user_roadrunner", "user_gamer"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 500000,
+            venueName: "Cobra Arcade Bar"
+          },
+          "chat_mock_5": {
+            id: "chat_mock_5",
+            connectionId: "conn_mock_5",
+            participants: ["user_turquoise", "user_coffee"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 400000,
+            venueName: "Casey Moore's Oyster House"
+          },
+          "chat_mock_10": {
+            id: "chat_mock_10",
+            connectionId: "conn_mock_10",
+            participants: ["user_phoenix", "user_punk"],
+            lastMessage: "System: Connection accepted. Start chatting!",
+            lastTimestamp: Date.now() - 300000,
+            venueName: "Valley Bar"
+          }
+        },
         messages: {},
         blacklisted_devices: {},
         appeals: {}
@@ -420,19 +948,34 @@ class SimulatedStore {
         if (!dbData.users) dbData.users = {};
         
         const mockUsersList = {
-          "sysop_admin": { uid: "sysop_admin", username: "SysOp", mood: "Monitoring 🖥️", bio: "System Operator.", profileTheme: "cyberpunk", emoji_avatar: "🖥️💾⚡", favorited_bars: [], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_greenday": { uid: "user_greenday", username: "BillieJoe", mood: "Rockin' 🎸", bio: "Boulevard of broken dreams.", profileTheme: "classic", emoji_avatar: "🎸🥁😎", favorited_bars: ["venue_cobra", "venue_valley", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_emo": { uid: "user_emo", username: "Sk8rBoi", mood: "Melancholy 🌧️", bio: "Can I make it any more obvious?", profileTheme: "sunset", emoji_avatar: "🛹🛹🌧️", favorited_bars: ["venue_caseys", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_hiphop": { uid: "user_hiphop", username: "JayZFan", mood: "Chillin' 😎", bio: "99 problems.", profileTheme: "classic", emoji_avatar: "🎧🎤🔥", favorited_bars: ["venue_gracies", "venue_bottled"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_coder": { uid: "user_coder", username: "AdaLovelace", mood: "Excited ⚡", bio: "Coding since 1999.", profileTheme: "cyberpunk", emoji_avatar: "💻📠⚡", favorited_bars: ["venue_valley", "venue_linger"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_rave": { uid: "user_rave", username: "SpinMaster", mood: "Ready to Party 🍹", bio: "Warehouse rave.", profileTheme: "glitter", emoji_avatar: "🍹🎧✨", favorited_bars: ["venue_sunbar", "venue_riot"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_retro": { uid: "user_retro", username: "NeonVibes", mood: "Chillin' 😎", bio: "Synthwave loop.", profileTheme: "sunset", emoji_avatar: "💡🌴🌅", favorited_bars: ["venue_cobra", "venue_linger", "venue_gracies"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_indie": { uid: "user_indie", username: "VinylLover", mood: "Mellow 🎧", bio: "Vinyl collector.", profileTheme: "classic", emoji_avatar: "🎵📻🎧", favorited_bars: ["venue_valley", "venue_caseys"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_metal": { uid: "user_metal", username: "IronMaiden", mood: "Goth Emo 🖤", bio: "Heavy metal.", profileTheme: "sunset", emoji_avatar: "⚡🎸🖤", favorited_bars: ["venue_yucca", "venue_cobra"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_gamer": { uid: "user_gamer", username: "PixelKnight", mood: "Gaming 🎮", bio: "Galaga champ.", profileTheme: "cyberpunk", emoji_avatar: "🎮👾🏆", favorited_bars: ["venue_cobra", "venue_sunbar"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_coffee": { uid: "user_coffee", username: "BeanQueen", mood: "Caffeinated ☕", bio: "Espresso lifer.", profileTheme: "classic", emoji_avatar: "☕🍩⏳", favorited_bars: ["venue_linger", "venue_caseys"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_punk": { uid: "user_punk", username: "RiotGrrrl", mood: "Rebellious ✊", bio: "Support local zines.", profileTheme: "sunset", emoji_avatar: "✊🎸🖤", favorited_bars: ["venue_gracies", "venue_valley", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
-          "user_star": { uid: "user_star", username: "AstroBoy", mood: "Dreamy 🌌", bio: "Rooftop stargazing.", profileTheme: "cyberpunk", emoji_avatar: "🌌🌠🚀", favorited_bars: ["venue_riot", "venue_bottled"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 }
+          "sysop_admin": { uid: "sysop_admin", username: "SysOp", mood: "Chillin' 😎", bio: "System Operator.", profileTheme: "cyberpunk", emoji_avatar: "🖥️💾⚡", favorited_bars: [], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_greenday": { uid: "user_greenday", username: "Billie", mood: "Nostalgic 📼", bio: "Waiting for September to end.", profileTheme: "sunset", emoji_avatar: "🎸🥁🎤", favorited_bars: ["venue_cobra", "venue_valley", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_emo": { uid: "user_emo", username: "Sk8rBoi", mood: "Melancholy 🌧️", bio: "She was a skater girl, she said see ya later girl.", profileTheme: "classic", emoji_avatar: "🛹💔💀", favorited_bars: ["venue_caseys", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_hiphop": { uid: "user_hiphop", username: "Jay", mood: "Chillin' 😎", bio: "99 problems but asl ain't one.", profileTheme: "sunset", emoji_avatar: "🎤🕶️💵", favorited_bars: ["venue_gracies", "venue_bottled"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_coder": { uid: "user_coder", username: "Ada", mood: "Excited ⚡", bio: "Brutalist designs are the future.", profileTheme: "cyberpunk", emoji_avatar: "💻💾⌨️", favorited_bars: ["venue_valley", "venue_linger"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_rave": { uid: "user_rave", username: "DJ_Spin", mood: "Ready to Party 🍹", bio: "Catch me at the warehouse party tonight.", profileTheme: "cyberpunk", emoji_avatar: "🎧🎛️⚡", favorited_bars: ["venue_sunbar", "venue_riot"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_retro": { uid: "user_retro", username: "NeonGirl", mood: "Chillin' 😎", bio: "Living in the wrong decade.", profileTheme: "classic", emoji_avatar: "✨🍭🛸", favorited_bars: ["venue_cobra", "venue_linger", "venue_gracies"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_indie": { uid: "user_indie", username: "VinylVixen", mood: "Mellow 🎧", bio: "Vinyl records sound better. Period.", profileTheme: "sunset", emoji_avatar: "📻🍂☕", favorited_bars: ["venue_valley", "venue_caseys"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_metal": { uid: "user_metal", username: "IronHead", mood: "Goth Emo 🖤", bio: "Metal head for life. Slayer rules.", profileTheme: "classic", emoji_avatar: "🤘🎸🔥", favorited_bars: ["venue_yucca", "venue_cobra"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_gamer": { uid: "user_gamer", username: "PixelKnight", mood: "Excited ⚡", bio: "Galaga high score champion.", profileTheme: "cyberpunk", emoji_avatar: "🎮👾🏆", favorited_bars: ["venue_cobra", "venue_sunbar"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_coffee": { uid: "user_coffee", username: "BeanQueen", mood: "Mellow 🎧", bio: "Too much espresso, not enough time.", profileTheme: "classic", emoji_avatar: "☕🍩⏳", favorited_bars: ["venue_linger", "venue_caseys"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_punk": { uid: "user_punk", username: "RiotGrrrl", mood: "Rebellious ✊", bio: "Support local zines and bands.", profileTheme: "sunset", emoji_avatar: "✊🎸🖤", favorited_bars: ["venue_gracies", "venue_valley", "venue_yucca"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_star": { uid: "user_star", username: "AstroBoy", mood: "Spacey 🚀", bio: "Staring at the stars from my rooftop.", profileTheme: "cyberpunk", emoji_avatar: "🌌🌠🚀", favorited_bars: ["venue_riot", "venue_bottled"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_cactus": { uid: "user_cactus", username: "CactusJack", mood: "Chillin' 😎", bio: "Desert nights and neon lights.", profileTheme: "sunset", emoji_avatar: "🌵🔥🌙", favorited_bars: ["venue_cobra", "venue_valley", "venue_coach"], createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000 },
+          "user_luna": { uid: "user_luna", username: "LunaMoth", mood: "Mellow 🎧", bio: "Listening to lo-fi on the patio at 2am.", profileTheme: "classic", emoji_avatar: "🦋🌙🎧", favorited_bars: ["venue_linger", "venue_gracies", "venue_caseys"], createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000 },
+          "user_salsa": { uid: "user_salsa", username: "SalsaVerde", mood: "Excited ⚡", bio: "If the music is playing, I'm dancing.", profileTheme: "sunset", emoji_avatar: "💃🌶️🎶", favorited_bars: ["venue_sunbar", "venue_bottled", "venue_riot"], createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000 },
+          "user_mesa": { uid: "user_mesa", username: "MesaMike", mood: "Nostalgic 📼", bio: "Born and raised in the East Valley. Still here.", profileTheme: "classic", emoji_avatar: "🏜️📼🍺", favorited_bars: ["venue_yucca", "venue_caseys"], createdAt: Date.now() - 6 * 24 * 60 * 60 * 1000 },
+          "user_copper": { uid: "user_copper", username: "CopperState", mood: "Creative 🎨", bio: "Tattoo artist by day, dive bar philosopher by night.", profileTheme: "cyberpunk", emoji_avatar: "🎨🖋️🍻", favorited_bars: ["venue_gracies", "venue_yucca", "venue_cobra"], createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000 },
+          "user_phoenix": { uid: "user_phoenix", username: "PhxRising", mood: "Rebellious ✊", bio: "This city raised me. I raise it back.", profileTheme: "sunset", emoji_avatar: "🔥🏙️✊", favorited_bars: ["venue_valley", "venue_cobra", "venue_gracies"], createdAt: Date.now() - 7 * 24 * 60 * 60 * 1000 },
+          "user_dreamer": { uid: "user_dreamer", username: "DayDreamer", mood: "Spacey 🚀", bio: "Head in the clouds, feet on Mill Ave.", profileTheme: "cyberpunk", emoji_avatar: "☁️🚀💫", favorited_bars: ["venue_sunbar", "venue_caseys", "venue_linger"], createdAt: Date.now() - 2 * 24 * 60 * 60 * 1000 },
+          "user_habanero": { uid: "user_habanero", username: "Habanero", mood: "Sassy 💅", bio: "Hot takes and hotter salsa.", profileTheme: "sunset", emoji_avatar: "🌶️💅✨", favorited_bars: ["venue_bottled", "venue_riot", "venue_coach"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_monsoon": { uid: "user_monsoon", username: "MonsoonSzn", mood: "Melancholy 🌧️", bio: "I love this city most when it rains.", profileTheme: "classic", emoji_avatar: "🌧️⛈️🌈", favorited_bars: ["venue_linger", "venue_valley"], createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000 },
+          "user_roadrunner": { uid: "user_roadrunner", username: "RoadRunner", mood: "Hyper 🤪", bio: "Beep beep. Can't catch me.", profileTheme: "cyberpunk", emoji_avatar: "🏃💨🤪", favorited_bars: ["venue_cobra", "venue_sunbar", "venue_yucca"], createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000 },
+          "user_saguaro": { uid: "user_saguaro", username: "SaguaroSoul", mood: "Reflective 📖", bio: "Journaling at the bar. Don't judge.", profileTheme: "classic", emoji_avatar: "🌵📖🌅", favorited_bars: ["venue_gracies", "venue_linger", "venue_caseys"], createdAt: Date.now() - 6 * 24 * 60 * 60 * 1000 },
+          "user_scorpion": { uid: "user_scorpion", username: "ScorpionQ", mood: "Goth Emo 🖤", bio: "Nocturnal by choice. Scorpio by birth.", profileTheme: "cyberpunk", emoji_avatar: "🦂🖤🌑", favorited_bars: ["venue_yucca", "venue_valley", "venue_cobra"], createdAt: Date.now() - 5 * 24 * 60 * 60 * 1000 },
+          "user_turquoise": { uid: "user_turquoise", username: "TurquoiseRing", mood: "Crushing 😍", bio: "Collecting turquoise and bad decisions.", profileTheme: "sunset", emoji_avatar: "💎💙🌻", favorited_bars: ["venue_coach", "venue_bottled", "venue_gracies"], createdAt: Date.now() - 2 * 24 * 60 * 60 * 1000 },
+          "user_prickly": { uid: "user_prickly", username: "PricklyPear", mood: "Ready to Party 🍹", bio: "Margarita in hand, always.", profileTheme: "classic", emoji_avatar: "🍹🌺🎉", favorited_bars: ["venue_riot", "venue_sunbar", "venue_bottled"], createdAt: Date.now() - 4 * 24 * 60 * 60 * 1000 },
+          "user_sidewinder": { uid: "user_sidewinder", username: "Sidewinder", mood: "Tired 😴", bio: "Night shift nurse. Bar is my morning coffee.", profileTheme: "classic", emoji_avatar: "🐍😴🌙", favorited_bars: ["venue_caseys", "venue_gracies", "venue_linger"], createdAt: Date.now() - 3 * 24 * 60 * 60 * 1000 }
         };
 
         let dbUpdated = false;
@@ -466,7 +1009,22 @@ class SimulatedStore {
       "pixel@asl.com": { uid: "user_gamer", password: "password123" },
       "bean@asl.com": { uid: "user_coffee", password: "password123" },
       "riot@asl.com": { uid: "user_punk", password: "password123" },
-      "astro@asl.com": { uid: "user_star", password: "password123" }
+      "astro@asl.com": { uid: "user_star", password: "password123" },
+      "cactus@asl.com": { uid: "user_cactus", password: "password123" },
+      "luna@asl.com": { uid: "user_luna", password: "password123" },
+      "salsa@asl.com": { uid: "user_salsa", password: "password123" },
+      "mesa@asl.com": { uid: "user_mesa", password: "password123" },
+      "copper@asl.com": { uid: "user_copper", password: "password123" },
+      "phx@asl.com": { uid: "user_phoenix", password: "password123" },
+      "dreamer@asl.com": { uid: "user_dreamer", password: "password123" },
+      "habanero@asl.com": { uid: "user_habanero", password: "password123" },
+      "monsoon@asl.com": { uid: "user_monsoon", password: "password123" },
+      "roadrunner@asl.com": { uid: "user_roadrunner", password: "password123" },
+      "saguaro@asl.com": { uid: "user_saguaro", password: "password123" },
+      "scorpion@asl.com": { uid: "user_scorpion", password: "password123" },
+      "turquoise@asl.com": { uid: "user_turquoise", password: "password123" },
+      "prickly@asl.com": { uid: "user_prickly", password: "password123" },
+      "sidewinder@asl.com": { uid: "user_sidewinder", password: "password123" }
     };
     
     let authUpdated = false;
