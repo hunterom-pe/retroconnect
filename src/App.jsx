@@ -413,6 +413,32 @@ export default function App() {
     return () => unsubAuth();
   }, [deviceUuid]);
 
+  // 2.5. Active Presence Heartbeat Update
+  useEffect(() => {
+    if (!currentUser || currentUser.isAnonymous) return;
+
+    const sendHeartbeat = () => {
+      dbSetDoc("users", currentUser.uid, {
+        lastActiveAt: Date.now()
+      }, true).catch(err => console.error("Heartbeat update failed:", err));
+    };
+
+    // Initial heartbeat
+    sendHeartbeat();
+
+    // Heartbeat every 2 minutes
+    const interval = setInterval(sendHeartbeat, 120000);
+
+    // Heartbeat when window/tab gains focus
+    window.addEventListener("focus", sendHeartbeat);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("focus", sendHeartbeat);
+    };
+  }, [currentUser]);
+
+
   // Strike 2 Warning Alert Trigger
   useEffect(() => {
     if (userDoc && userDoc.flag_count === 2 && !hasShownStrike2) {
@@ -1016,7 +1042,8 @@ export default function App() {
           spotify_song_title: userData.spotify_song_title || "",
           spotify_artist_name: userData.spotify_artist_name || "",
           favorited_bars: userData.favorited_bars || [],
-          headline: userData.headline || "Everyone's favorite dial-up partner"
+          headline: userData.headline || "Everyone's favorite dial-up partner",
+          lastActiveAt: userData.lastActiveAt || Date.now()
         });
       } else {
         setSelectedProfileUser({
@@ -1030,7 +1057,8 @@ export default function App() {
           spotify_song_title: "",
           spotify_artist_name: "",
           favorited_bars: [],
-          headline: "Everyone's favorite dial-up partner"
+          headline: "Everyone's favorite dial-up partner",
+          lastActiveAt: Date.now()
         });
       }
     } catch (err) {
@@ -1055,7 +1083,8 @@ export default function App() {
           spotify_song_title: userData.spotify_song_title || fallbackData.spotify_song_title || "",
           spotify_artist_name: userData.spotify_artist_name || fallbackData.spotify_artist_name || "",
           favorited_bars: userData.favorited_bars || [],
-          headline: userData.headline || fallbackData.headline || "Everyone's favorite dial-up partner"
+          headline: userData.headline || fallbackData.headline || "Everyone's favorite dial-up partner",
+          lastActiveAt: userData.lastActiveAt || fallbackData.lastActiveAt || null
         });
       } else {
         setSelectedProfileUser({
@@ -1069,7 +1098,8 @@ export default function App() {
           spotify_song_title: fallbackData.spotify_song_title || "",
           spotify_artist_name: fallbackData.spotify_artist_name || "",
           favorited_bars: [],
-          headline: fallbackData.headline || "Everyone's favorite dial-up partner"
+          headline: fallbackData.headline || "Everyone's favorite dial-up partner",
+          lastActiveAt: fallbackData.lastActiveAt || null
         });
       }
     } catch (err) {
@@ -1085,10 +1115,12 @@ export default function App() {
         spotify_song_title: fallbackData.spotify_song_title || "",
         spotify_artist_name: fallbackData.spotify_artist_name || "",
         favorited_bars: [],
-        headline: fallbackData.headline || "Everyone's favorite dial-up partner"
+        headline: fallbackData.headline || "Everyone's favorite dial-up partner",
+        lastActiveAt: fallbackData.lastActiveAt || null
       });
     }
   };
+
 
   const handleSaveProfile = async (updatedData) => {
     if (!currentUser) return;
@@ -2501,11 +2533,13 @@ export default function App() {
             spotify_track_uri={selectedProfileUser.spotify_track_uri}
             spotify_song_title={selectedProfileUser.spotify_song_title}
             spotify_artist_name={selectedProfileUser.spotify_artist_name}
+            lastActiveAt={selectedProfileUser.lastActiveAt}
             onClose={() => {
               setSelectedProfileUser(null);
               setNavigationScreen("home");
             }}
             onOpenChat={handleOpenChat}
+
             currentUserId={currentUser?.uid}
             onSaveProfile={handleSaveProfile}
             unlockedThemes={

@@ -73,10 +73,35 @@ export default function MySpaceProfileDialog({
   venues = [],
   onSelectVenue,
   acceptedConnections = [],
-  onOpenProfile
+  onOpenProfile,
+  lastActiveAt
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editUsername, setEditUsername] = useState(username);
+
+  const isUserOnline = () => {
+    if (userId === currentUserId) return true;
+    if (!lastActiveAt) return false;
+    const activeThreshold = 5 * 60 * 1000; // 5 minutes
+    return (Date.now() - lastActiveAt) < activeThreshold;
+  };
+
+  const getStatusText = () => {
+    if (isUserOnline()) return "Online 📡";
+    if (!lastActiveAt) return "Offline 💤";
+    const diffMs = Date.now() - lastActiveAt;
+    const diffMins = Math.floor(diffMs / (60 * 1000));
+    if (diffMins < 60) {
+      return `Offline 💤 (active ${diffMins}m ago)`;
+    }
+    const diffHours = Math.floor(diffMins / 60);
+    if (diffHours < 24) {
+      return `Offline 💤 (active ${diffHours}h ago)`;
+    }
+    const diffDays = Math.floor(diffHours / 24);
+    return `Offline 💤 (active ${diffDays}d ago)`;
+  };
+
   const [editMood, setEditMood] = useState(mood);
   const [editBio, setEditBio] = useState(bio);
   const [editProfileTheme, setEditProfileTheme] = useState(profileTheme);
@@ -400,7 +425,12 @@ export default function MySpaceProfileDialog({
               ) : (
                 <p><strong>Mood:</strong> {mood || "Chillin' 😎"}</p>
               )}
-              <p><strong>Status:</strong> Online 📡</p>
+              <p>
+                <strong>Status:</strong>{" "}
+                <span style={{ color: isUserOnline() ? "#00ff66" : "#aaaaaa", fontWeight: "bold" }}>
+                  {getStatusText()}
+                </span>
+              </p>
               <p><strong>Region:</strong> Phoenix Area</p>
             </div>
 
