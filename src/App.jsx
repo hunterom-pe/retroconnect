@@ -1414,6 +1414,13 @@ export default function App() {
 
 
   const radarPosts = globalActivePosts.filter(p => userDoc?.favorited_bars?.includes(p.venueId));
+  const myPosts = globalActivePosts.filter(p => p.userId === currentUser?.uid);
+  const currentFeedPosts = feedTab === "radar" 
+    ? radarPosts 
+    : feedTab === "my_posts" 
+      ? myPosts 
+      : globalActivePosts;
+
 
   return (
     <div className="myspace-layout">
@@ -1668,9 +1675,11 @@ export default function App() {
                         border: "1px solid #003399",
                         borderBottom: feedTab === "radar" ? "1px solid #ffffff" : "1px solid #003399",
                         fontWeight: "bold",
-                        fontSize: "12px",
+                        fontSize: "11px",
                         minHeight: "32px",
-                        cursor: "pointer"
+                        cursor: "pointer",
+                        whiteSpace: "nowrap",
+                        padding: "2px 4px"
                       }}
                     >
                       📡 My Radar ({radarPosts.length})
@@ -1685,12 +1694,33 @@ export default function App() {
                         border: "1px solid #003399",
                         borderBottom: feedTab === "global" ? "1px solid #ffffff" : "1px solid #003399",
                         fontWeight: "bold",
-                        fontSize: "12px",
+                        fontSize: "11px",
                         minHeight: "32px",
-                        cursor: "pointer"
+                        cursor: "pointer",
+                        whiteSpace: "nowrap",
+                        padding: "2px 4px"
                       }}
                     >
-                      🌍 Global Feed ({globalActivePosts.length})
+                      🌍 Global ({globalActivePosts.length})
+                    </button>
+                    <button 
+                      onClick={() => setFeedTab("my_posts")}
+                      style={{
+                        flex: 1,
+                        borderRadius: "4px 4px 0 0",
+                        backgroundColor: feedTab === "my_posts" ? "#ffffff" : "#e5e5e5",
+                        color: feedTab === "my_posts" ? "#003399" : "#666",
+                        border: "1px solid #003399",
+                        borderBottom: feedTab === "my_posts" ? "1px solid #ffffff" : "1px solid #003399",
+                        fontWeight: "bold",
+                        fontSize: "11px",
+                        minHeight: "32px",
+                        cursor: "pointer",
+                        whiteSpace: "nowrap",
+                        padding: "2px 4px"
+                      }}
+                    >
+                      📝 My Posts ({myPosts.length})
                     </button>
                   </div>
 
@@ -1755,13 +1785,15 @@ export default function App() {
                   ) : (
                     /* Display Posts List */
                     <div style={{ border: "1px solid #003399", borderTop: "none", backgroundColor: "#fff", display: "flex", flexDirection: "column", borderRadius: "0 0 4px 4px" }}>
-                      {(feedTab === "radar" ? radarPosts : globalActivePosts).length === 0 ? (
+                      {currentFeedPosts.length === 0 ? (
                         <div style={{ padding: "30px 20px", textAlign: "center", fontSize: "13px", color: "#666", fontStyle: "italic", lineHeight: "1.5" }}>
                           <div style={{ fontSize: "28px", marginBottom: "8px" }}>📭</div>
-                          No active missed connection reports in this feed.
+                          {feedTab === "my_posts" 
+                            ? "You haven't posted any missed connections yet." 
+                            : "No active missed connection reports in this feed."}
                         </div>
                       ) : (
-                        (feedTab === "radar" ? radarPosts : globalActivePosts).map((post, idx, currentArr) => {
+                        currentFeedPosts.map((post, idx, currentArr) => {
                           const timeAgo = (() => {
                             const diff = Date.now() - (post.timestamp || post.encounterTimestamp || 0);
                             const mins = Math.floor(diff / 60000);
