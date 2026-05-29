@@ -390,6 +390,12 @@ export default function App() {
           if (userRecord) {
             const data = userRecord.data();
             setUserDoc(data);
+            if (!data.homeCity) {
+              dbSetDoc("users", user.uid, {
+                homeCity: data.selectedCity || selectedCity || "Phoenix",
+                selectedCity: data.selectedCity || selectedCity || "Phoenix"
+              }, true);
+            }
             if (data.selectedCity) {
               const isReviewer = localStorage.getItem("asl_reviewer_mode") === "true" || localStorage.getItem("asl_dev_override") === "true";
               setSelectedCity(isReviewer ? "Cupertino" : data.selectedCity);
@@ -776,6 +782,16 @@ export default function App() {
           setNavigationScreen("home");
         }
         return;
+      }
+
+      // Ensure userDoc has homeCity set in Firestore before writing post to satisfy security rules
+      if (userDoc && !userDoc.homeCity) {
+        const defaultCity = selectedCity || "Phoenix";
+        await dbSetDoc("users", currentUser.uid, {
+          homeCity: defaultCity,
+          selectedCity: defaultCity
+        }, true);
+        userDoc.homeCity = defaultCity;
       }
 
       // Check metropolitan portal validation constraints (bypass if Reviewer Mode is active)
