@@ -1676,14 +1676,14 @@ export default function App() {
                         border: "1px solid #003399",
                         borderBottom: feedTab === "radar" ? "1px solid #ffffff" : "1px solid #003399",
                         fontWeight: "bold",
-                        fontSize: "11px",
+                        fontSize: "10px",
                         minHeight: "32px",
                         cursor: "pointer",
                         whiteSpace: "nowrap",
-                        padding: "2px 4px"
+                        padding: "2px"
                       }}
                     >
-                      📡 My Radar ({radarPosts.length})
+                      📡 Radar ({radarPosts.length})
                     </button>
                     <button 
                       onClick={() => setFeedTab("global")}
@@ -1695,11 +1695,11 @@ export default function App() {
                         border: "1px solid #003399",
                         borderBottom: feedTab === "global" ? "1px solid #ffffff" : "1px solid #003399",
                         fontWeight: "bold",
-                        fontSize: "11px",
+                        fontSize: "10px",
                         minHeight: "32px",
                         cursor: "pointer",
                         whiteSpace: "nowrap",
-                        padding: "2px 4px"
+                        padding: "2px"
                       }}
                     >
                       🌍 Global ({globalActivePosts.length})
@@ -1714,11 +1714,11 @@ export default function App() {
                         border: "1px solid #003399",
                         borderBottom: feedTab === "my_posts" ? "1px solid #ffffff" : "1px solid #003399",
                         fontWeight: "bold",
-                        fontSize: "11px",
+                        fontSize: "10px",
                         minHeight: "32px",
                         cursor: "pointer",
                         whiteSpace: "nowrap",
-                        padding: "2px 4px"
+                        padding: "2px"
                       }}
                     >
                       📝 My Posts ({myPosts.length})
